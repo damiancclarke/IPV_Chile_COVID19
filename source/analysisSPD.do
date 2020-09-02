@@ -68,9 +68,19 @@ tab timeToQ
 ***DANIEL: mejor re-emplazamos con promedios en una linea base.  Por ejemplo,
 ***re-emplazar cada comuna con el valor promedio durante el periodo pre-covid
 ***(especificamente me refiero al periodo pre-covid donde tenemos datos de movilidad...)
-replace mobility_externo=0 if mobility_externo==. //REVISAR
-replace mobility_interno=0 if mobility_interno==. //REVISAR
+***DAMIAN: reemplace con la media entren el primer dia que tenemos de mobilidad y
+***dia de cierre de colegios ...creo que es mejor que la 1ra cuarentena, no?
+
 drop if comuna==.|t==. //eliminar datos que no entran en el analisis
+levelsof comuna, local(comunas)
+foreach tp in externo interno{
+foreach c of local comunas{
+	if "`c'"!="11302"&"`c'"!="12202"{
+		sum mobility_`tp' if t>=21971&t<=21989&comuna==`c'
+		replace mobility_`tp'=`r(mean)' if t<21971&comuna==`c'
+	}
+}
+}
 
 *-------------------------------------------------------------------------------
 *--- (2) Descriptives
