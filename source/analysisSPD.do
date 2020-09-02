@@ -68,7 +68,7 @@ tab timeToQ
 ***DANIEL: mejor re-emplazamos con promedios en una linea base.  Por ejemplo,
 ***re-emplazar cada comuna con el valor promedio durante el periodo pre-covid
 ***(especificamente me refiero al periodo pre-covid donde tenemos datos de movilidad...)
-***DAMIAN: reemplace con la media entren el primer dia que tenemos de mobilidad y
+***DAMIAN: reemplace con la media entre el primer dia que tenemos de movilidad y
 ***dia de cierre de colegios ...creo que es mejor que la 1ra cuarentena, no?
 
 drop if comuna==.|t==. //eliminar datos que no entran en el analisis
