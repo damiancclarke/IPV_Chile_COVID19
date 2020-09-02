@@ -310,9 +310,9 @@ foreach var of varlist `outcomespc' {
 
     local ests est1 est2 est3 est4 est5 est6 est7 est8
     #delimit ;
-    esttab `ests' using "$OUT/areg/DD_`q'_`var'.tex",
-    b(%-9.3f) se(%-9.3f) noobs keep(`q') nonotes nogaps mlabels(, none) 
-    nonumbers style(tex) fragment replace noline label
+    esttab `ests' using "$OUT/areg/DD_`var'.tex", b(%-9.3f) se(%-9.3f) noobs
+    keep(mobility_ext mobility_int poblacion quarantine) nonotes nogaps
+    mlabels(, none) nonumbers style(tex) fragment replace noline label
     starlevel ("*" 0.10 "**" 0.05 "***" 0.01);
     #delimit cr
     estimates clear
