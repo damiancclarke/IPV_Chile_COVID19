@@ -169,6 +169,12 @@ graph export "$OUT/descriptives/victimasMRegion149.eps", replace;
 #delimit cr
 restore
 
+***DANIEL: Si no es muy complicado, podemos agregar los graficos comunales
+***que compara tasas de 2019 y 2020 y que tiene la linea de 45 grados que
+***tenemos en el archivo SPDdesc.do.  Avísame si no tienes el archivo y te
+***lo envio!  
+
+
 *-------------------------------------------------------------------------------
 *--- (3) Event Study
 *-------------------------------------------------------------------------------
@@ -228,9 +234,10 @@ foreach wt in no yes {
                  ytitle("Crime Rate (per capita)"));
         graph export "$OUT/eventdd/event1`gn'_`var'.eps", replace;
 	
-        eventdd `var' i.t i.comuna poblacion `opt', timevar(timeToQ) ci(rcap) lags(20) leads(3)
-        baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
-        graph_op(xlabel(-20 "{&le} -20" -15 "-15" -10 "-10" -5 "-5" -1 "-1" 0 "0" 1 "+1" 2 "+2" 3 "+3" 5 "+5")
+        eventdd `var' i.t i.comuna poblacion `opt', timevar(timeToQ) ci(rcap)
+        lags(20) leads(3) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        graph_op(xlabel(-20 "{&le} -20" -15 "-15" -10 "-10" -5 "-5" -1 "-1"
+                        0 "0" 1 "+1" 2 "+2" 3 "+3" 5 "+5")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
                  ytitle("Crime Rate (per capita)"));
         graph export "$OUT/eventdd/event2`gn'_`var'.eps", replace;
@@ -261,45 +268,49 @@ foreach wt in no yes {
 *--- (4) Two way FEs
 *-------------------------------------------------------------------------------
 xtset comuna t
+local ops abs(comuna) cluster(comuna) 
+local fes i.t i.comuna
+local wt [aw=poblacion]
 
 foreach var of varlist `outcomespc' {
+    dis "here"
     *Sin Pesos de Poblacion
-    eststo: areg `var' i.t i.comuna quarantine, abs(comuna) cluster(comuna) 
+    eststo: areg `var' `fes' quarantine, `ops'
     sum `var' if e(sample)==1
     estadd scalar mean=r(mean)
     
-    eststo: areg `var' i.t i.comuna poblacion quarantine, abs(comuna) cluster(comuna)
-    sum `var' if e(sample)==1
-    estadd scalar mean=r(mean)
-    boottest `q'
-    
-    eststo: areg `var' i.t i.comuna mobility_externo mobility_interno quarantine, abs(comuna) cluster(comuna)
+    eststo: areg `var' `fes' poblacion quarantine, `ops'
     sum `var' if e(sample)==1
     estadd scalar mean=r(mean)
     
-    eststo: areg `var' i.t i.comuna mobility_externo mobility_interno poblacion quarantine, abs(comuna) cluster(comuna)
+    eststo: areg `var' `fes' mobility_ext mobility_int quarantine, `ops'
+    sum `var' if e(sample)==1
+    estadd scalar mean=r(mean)
+    
+    eststo: areg `var' `fes' mobility_ext mobility_int poblacion quarantine, `ops'
     sum `var' if e(sample)==1
     estadd scalar mean=r(mean)
     
     *Con Pesos de Poblacion
-    eststo: areg `var' i.t i.comuna quarantine [aw=poblacion], abs(comuna) cluster(comuna)
+    eststo: areg `var' `fes' quarantine `wt', `ops'
     sum `var' if e(sample)==1
     estadd scalar mean=r(mean)
     
-    eststo: areg `var' i.t i.comuna poblacion quarantine [aw=poblacion], abs(comuna) cluster(comuna)
+    eststo: areg `var' `fes' poblacion quarantine `wt', `ops'
     sum `var' if e(sample)==1
     estadd scalar mean=r(mean)
     
-    eststo: areg `var' i.t i.comuna mobility_externo mobility_interno quarantine [aw=poblacion], abs(comuna) cluster(comuna)
+    eststo: areg `var' `fes' mobility_ext mobility_int quarantine `wt', `ops'
     sum `var' if e(sample)==1
     estadd scalar mean=r(mean)
     
-    eststo: areg `var' i.t i.comuna mobility_externo mobility_interno poblacion quarantine [aw=poblacion], abs(comuna) cluster(comuna)
+    eststo: areg `var' `fes' mobility_ext mobility_int poblacion quarantine `wt', `ops'
     sum `var' if e(sample)==1
     estadd scalar mean=r(mean)
-    
+
+    local ests est1 est2 est3 est4 est5 est6 est7 est8
     #delimit ;
-    esttab est1 est2 est3 est4 est5 est6 est7 est8 using "$OUT/areg/DD_`q'_`var'.tex",
+    esttab `ests' using "$OUT/areg/DD_`q'_`var'.tex",
     b(%-9.3f) se(%-9.3f) noobs keep(`q') nonotes nogaps mlabels(, none) 
     nonumbers style(tex) fragment replace noline label
     starlevel ("*" 0.10 "**" 0.05 "***" 0.01);
@@ -310,29 +321,34 @@ foreach var of varlist `outcomespc' {
 *-------------------------------------------------------------------------------
 *--- (5) Sharp Difference-in-Difference
 *-------------------------------------------------------------------------------
+***DANIEL: Aquí propongo que trabajemos a nivel de semana...  Si realizamos algo
+*** como el proceso de hacer un estudio de ventos semanal, nos va a dar mucho
+*** mas estabilidad en los 'lags' y 'leads'.  Si no es claro, me avises! GRACIAS!
+
+local fes comuna t
 foreach wt in no yes {
     if "`wt'"=="no"  {
-        local opt
+        local opt placebo(5) dynamic(3) breps(50) cluster(comuna)
         local gn 
     }
     if "`wt'"=="yes" {
-        local opt weight(poblacion)
+        local opt placebo(5) dynamic(3) breps(50) cluster(comuna) weight(poblacion)
         local gn _Wt 
     }
     foreach var of varlist `outcomespc' {
-        did_multiplegt `var' comuna t quarantine, placebo(5) dynamic(3) breps(50) cluster(comuna) `opt'
+        did_multiplegt `var' `fes' quarantine, `opt'
         ereturn list
         graph export "$OUT/did_multiplegt/did1_quar`gn'_`var'.eps", replace
 
-        did_multiplegt `var' comuna t quarantine, placebo(5) dynamic(3) breps(50) cluster(comuna) controls(poblacion) `opt'
+        did_multiplegt `var' `fes' quarantine, controls(poblacion) `opt'
         ereturn list
         graph export "$OUT/did_multiplegt/did2_quar`gn'_`var'.eps", replace
         
-        did_multiplegt `var' comuna t quarantine, placebo(3) dynamic(3) breps(50) cluster(comuna) controls(mobility_externo mobility_interno) `opt'
+        did_multiplegt `var' `fes' quarantine, controls(mobility_ext mobility_int) `opt'
         ereturn list
         graph export "$OUT/did_multiplegt/did3_quar`gn'_`var'.eps", replace
         
-        did_multiplegt `var' comuna t quarantine, placebo(3) dynamic(3) breps(50) cluster(comuna) controls(mobility_externo mobility_interno poblacion) `opt'
+        did_multiplegt `var' `fes' quarantine, controls(mobility_ext mobility_int poblacion) `opt'
         ereturn list
         graph export "$OUT/did_multiplegt/did4_quar`gn'_`var'.eps", replace
     }
