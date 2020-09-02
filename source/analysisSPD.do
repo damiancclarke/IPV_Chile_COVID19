@@ -76,7 +76,7 @@ levelsof comuna, local(comunas)
 foreach tp in externo interno{
 foreach c of local comunas{
 	if "`c'"!="11302"&"`c'"!="12202"{
-		sum mobility_`tp' if t>=21971&t<=21989&comuna==`c'
+		qui sum mobility_`tp' if t>=21971&t<=21989&comuna==`c'
 		replace mobility_`tp'=`r(mean)' if t<21971&comuna==`c'
 	}
 }
