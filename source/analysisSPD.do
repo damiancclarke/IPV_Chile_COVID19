@@ -64,17 +64,11 @@ bys comuna (t): egen minn = min(n) if quarantine==1
 bys comuna: egen qstart = min(minn)
 gen timeToQ = n-qstart
 tab timeToQ
+drop if comuna==.|t==. 
 
-***DANIEL: mejor re-emplazamos con promedios en una linea base.  Por ejemplo,
-***re-emplazar cada comuna con el valor promedio durante el periodo pre-covid
-***(especificamente me refiero al periodo pre-covid donde tenemos datos de movilidad...)
-***DAMIAN: reemplace con la media entre el primer dia que tenemos de movilidad y
-***dia de cierre de colegios ...creo que es mejor que la 1ra cuarentena, no?
-
-drop if comuna==.|t==. //eliminar datos que no entran en el analisis
 levelsof comuna, local(comunas)
-foreach tp in externo interno{
-foreach c of local comunas{
+foreach tp in externo interno {
+foreach c of local comunas {
 	if "`c'"!="11302"&"`c'"!="12202"{
 		qui sum mobility_`tp' if t>=21971&t<=21989&comuna==`c'
 		replace mobility_`tp'=`r(mean)' if t<21971&comuna==`c'
@@ -90,17 +84,17 @@ collapse (sum) denuncias, by(month year)
 rename month orden
 reshape wide denuncias, i(orden) j(year)
 
-graph bar (sum) denuncias2019 denuncias2020, ///
-blabel(total, position(outside) format(%5.0f)) ///
-over(orden, relabel(1 "Enero" 2 "Febrero" 3 "Marzo" 4 "Abril" 5 "Mayo")) ///
-bargap(5) bar(1, color(ebblue*1))  bar(2, colo(red*1.5)) ///
-legend(label(1 "2019") label(2 "2020") ///
-       pos(12) col(2)  size(vsmall) region(lcolor(white))) ///
-ylabel(0(1000)10000, ///
-       labsize(vsmall) angle(horizontal) glcolor(black*0.4) glpattern(solid) glwidth (vvthin) valuelabel format(%5.0f)) ///
-ytitle("Cantidad de Denunicas (Violencia Intrafamiliar)") ///
-graphregion(fcolor(white) color(black))
-graph export "$OUT/descriptives/Denuncias_month_20192020.eps", replace
+#delimit ;
+graph bar (sum) denuncias2019 denuncias2020, blabel(total, position(outside) format(%5.0f)) 
+   over(orden, relabel(1 "Enero" 2 "Febrero" 3 "Marzo" 4 "Abril" 5 "Mayo")) 
+   bargap(5) bar(1, color(ebblue*1))  bar(2, colo(red*1.5)) 
+   legend(label(1 "2019") label(2 "2020") pos(12) col(2)  size(vsmall) region(lcolor(white))) 
+   ylabel(0(1000)10000, labsize(vsmall) angle(horizontal) glcolor(black*0.4) 
+          glpattern(solid) glwidth (vvthin) valuelabel format(%5.0f)) 
+   ytitle("Cantidad de Denunicas (Violencia Intrafamiliar)") 
+   graphregion(fcolor(white) color(black));
+graph export "$OUT/descriptives/Denuncias_month_20192020.eps", replace;
+#delimit cr
 restore
 
 
@@ -183,47 +177,127 @@ restore
 ***que compara tasas de 2019 y 2020 y que tiene la linea de 45 grados que
 ***tenemos en el archivo SPDdesc.do.  Avísame si no tienes el archivo y te
 ***lo envio!  
+*TRABAJANDO EN ESTO :)
 
+*aqui lo solicitado
+*preserve
+drop if year==2018
+gen period = 1 if month==1|month==2
+replace period = 2 if month==3|month==4
+collapse (sum) denuncias, by(cod_com comuna period year)
+drop if comuna==""
+drop if period==.
+reshape wide denuncias, i(comuna period) j(year)
+merge 1:1 cod_com period using "C:\Users\danie\Desktop\Proyectos\Asistente\Llamadas-149\dta\quarantine_period.dta", nogen keep(1 3) keepusing(quarantine)
+replace quarantine=0 if quarantine==.
+set scheme plotplainblind
+
+*-------------------------------------------------------------------------------
+*FIGURA 13 B): triangulo rojo sin cuarentena; diamante azul con cuarentena
+*-------------------------------------------------------------------------------
+*juntos
+twoway (function x, range(denuncias2020) n(2) lcolor(red)) ///
+(scatter denuncias2020 denuncias2019 if period==2& quarantine==0, ms(Th) mcolor(red) mlabel(comuna) mlabsize(vsmall) legend(off)) ///
+(scatter denuncias2020 denuncias2019 if period==2& quarantine==1, ms(Dh) mcolor(blue) mlabel(comuna) mlabsize(vsmall) legend(off)), ///
+ytitle("Denuncias 2020") xtitle("Denuncias 2019")
+graph export denunciasComunas.eps, replace
+
+*separados: SIN CUARENTENA
+twoway (function x, range(denuncias2020) n(2) lcolor(red)) ///
+(scatter denuncias2020 denuncias2019 if period==2& quarantine==0, ms(Th) mcolor(red) mlabel(comuna) mlabsize(vsmall) legend(off)), ///
+ytitle("Denuncias 2020") xtitle("Denuncias 2019")
+graph export denunciasComunas_Noquarantine.eps, replace
+
+*separados: CON CUARENTENA
+twoway (function x, range(denuncias2020) n(2) lcolor(red)) ///
+(scatter denuncias2020 denuncias2019 if period==2& quarantine==1, ms(Dh) mcolor(blue) mlabel(comuna) mlabsize(vsmall) legend(off)), ///
+ytitle("Denuncias 2020") xtitle("Denuncias 2019")
+graph export denunciasComunas_quarantine.eps, replace
+
+*-------------------------------------------------------------------------------
+*FIGURA 13 D): triangulo rojo sin cuarentena; diamante azul con cuarentena
+*-------------------------------------------------------------------------------
+*juntos
+twoway (function x, range(0 200) n(2) lcolor(red)) ///
+(scatter denuncias2020 denuncias2019 if period==2&denuncias2020<200& quarantine==0, ms(Th) mcolor(red) mlabel(comuna) mlabsize(vsmall)) ///
+(scatter denuncias2020 denuncias2019 if period==2&denuncias2020<200& quarantine==1, ms(Dh) mcolor(blue) mlabel(comuna) mlabsize(vsmall)), ///
+ytitle("Denuncias 2020") xtitle("Denuncias 2019") xlabel(0(100)320))
+graph export denunciasComunas_under200.eps, replace
+
+*separados: SIN CUARENTENA
+twoway (function x, range(0 200) n(2) lcolor(red)) ///
+(scatter denuncias2020 denuncias2019 if period==2&denuncias2020<200& quarantine==0, ms(Th) mcolor(red) mlabel(comuna) mlabsize(vsmall) legend(off)), ///
+ytitle("Denuncias 2020") xtitle("Denuncias 2019") xlabel(0(100)320)
+graph export denunciasComunas_under200_Noquarantine.eps, replace
+
+*separados: CON CUARENTENA
+twoway (function x, range(0 200) n(2) lcolor(red)) ///
+(scatter denuncias2020 denuncias2019 if period==2&denuncias2020<200& quarantine==1, ms(Dh) mcolor(blue) mlabel(comuna) mlabsize(vsmall) legend(off)), ///
+ytitle("Denuncias 2020") xtitle("Denuncias 2019") xlabel(0(100)320)
+graph export denunciasComunas_under200_quarantine.eps, replace
+*hasta aca lo solicitado
 
 *-------------------------------------------------------------------------------
 *--- (3) Event Study
 *-------------------------------------------------------------------------------
-***DANIEL: En este caso como el event study es por día, mejor hacemos un análisis
-***con más lags y leads.  Va a continuación un codigo que tengo con un análisis
-***diario y semanal.  ¿Podemos implementar ambos aquí.  Puede ser en dos bloques
-***de code distinto si es más simple.
-/*
-drop if comuna==""
-keep if year==2020
-gen rate = denuncias/poblacionINE*10000
-sort comuna month day
-by comuna: gen time = _n
-gen date = time if quarantine==1
-bys comuna: egen adopDate = min(date)
-gen timeToAdop = time-adopDate
-egen cid = group(comuna)
+*By Day
+foreach wt in no yes {
+    if "`wt'"=="no"  {
+        local opt
+        local gn 
+    }
+    if "`wt'"=="yes" {
+        local opt [aw=poblacion]
+        local gn _Wt 
+    }
+    foreach var of varlist `outcomespc' {
+        #delimit ;
+        eventdd `var' i.t i.comuna `opt', timevar(timeToQ) ci(rcap) lags(50)
+        leads(50) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        graph_op(xlabel(-50 "{&le} -50" -25 "-25" 0 "0" 25 "25" 50 "{&ge} 50")
+                 scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+                 ytitle("Crime Rate per 100,000 people"));
+        graph export "$OUT/eventdd/event1`gn'_`var'.eps", replace;
+	
+        eventdd `var' i.t i.comuna poblacion `opt', timevar(timeToQ) ci(rcap)
+        lags(50) leads(50) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        graph_op(xlabel(-50 "{&le} -50" -25 "-25" 0 "0" 25 "25" 50 "{&ge} 50")
+                 scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+                 ytitle("Crime Rate per 100,000 people"));
+        graph export "$OUT/eventdd/event2`gn'_`var'.eps", replace;
+        
+	eventdd `var' i.t i.comuna mobility_externo mobility_interno `opt',
+        timevar(timeToQ) ci(rcap) lags(50) leads(50)
+        baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        graph_op(xlabel(-50 "{&le} -50" -25 "-25" 0 "0" 25 "25" 50 "{&ge} 50")
+                 scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+                 ytitle("Crime Rate per 100,000 people"));
+        graph export "$OUT/eventdd/event3`gn'_`var'.eps", replace;
+	
+	eventdd `var' i.t i.comuna poblacion mobility_externo mobility_interno `opt',
+        timevar(timeToQ) ci(rcap) lags(50) leads(50)
+        baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        graph_op(xlabel(-50 "{&le} -50" -25 "-25" 0 "0" 25 "25" 50 "{&ge} 50")
+                 scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+                 ytitle("Crime Rate per 100,000 people"));
+        graph export "$OUT/eventdd/event4`gn'_`var'.eps", replace;
+	#delimit cr
+    }
+    graph drop _all
+}
 
-graph set eps fontface "Times New Roman"
-eventdd rate i.cid i.time [aw=poblacionINE], timevar(timeToAdop) ci(rcap) cluster(cid) lags(50) leads(50) graph_op(legend(off) scheme(s1mono) xtitle("Días a Cuarentena") ytitle("Denuncias por 10,000 Habitantes") xlabel(-50 "{&le} -50" -25 "-25" 0 "0" 25 "25" 50 "{&ge} 50")) coef_op(ms(Oh) mc(black)) ci_op(color(gs12)) endpoints_op(ms(Oh) mc(black)) accum
-graph export eventDenuncias_baseline.eps, replace
-
-
-drop time
-
-sort comuna month day
+*By Week
+***DAMIAN aca cuando hacemos sort creo que lo correcto es añadir year sino la 
+***semanas quedan 'corridas'
+preserve
+drop timeToQ
+sort comuna year month day
 by comuna: gen time = _n
 gen week = ceil(time/7)
-collapse poblacionINE quarantine (sum) denuncias, by(comuna week)
-gen date = week if quarantine!=0
-bys comuna: egen adopDate = min(date)
-gen timeToAdop = week-adopDate
-egen cid = group(comuna)
-gen rate = denuncias/poblacionINE*10000
-
-eventdd rate i.cid i.week [aw=poblacionINE], timevar(timeToAdop) ci(rcap) cluster(cid) lags(10) leads(7) graph_op(legend(off) scheme(s1mono) xtitle("Semanas a Cuarentena") ytitle("Denuncias por 10,000 Habitantes") xlabel(-10 "{&le} -10" -5 "-5" 0 "0" 5 "5" 7 "{&ge} 7")) coef_op(ms(Oh) mc(black)) ci_op(color(gs12)) endpoints_op(ms(Oh) mc(black)) accum
-graph export eventDenuncias_baseline_weeks.eps, replace
-
-*/
+collapse poblacion quarantine (sum) `outcomespc', by(comuna week)
+gen minn = week if quarantine!=0
+bys comuna: egen qstart = min(minn)
+gen timeToQ = week-qstart
 
 foreach wt in no yes {
     if "`wt'"=="no"  {
@@ -236,43 +310,40 @@ foreach wt in no yes {
     }
     foreach var of varlist `outcomespc' {
         #delimit ;
-        eventdd `var' i.t i.comuna `opt', timevar(timeToQ) ci(rcap) lags(20)
-        leads(3) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
-        graph_op(xlabel(-20 "{&le} -20" -15 "-15" -10 "-10" -5 "-5" -1 "-1"
-                        0 "0" 1 "+1" 2 "+2" 3 "+3" 5 "+5")
+        eventdd `var' i.week i.comuna `opt', timevar(timeToQ) ci(rcap) lags(20)
+        leads(10) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 10 "{&ge} 10")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
-                 ytitle("Crime Rate (per capita)"));
-        graph export "$OUT/eventdd/event1`gn'_`var'.eps", replace;
+                 ytitle("Crime Rate per 100,000 people"));
+        graph export "$OUT/eventdd/event1`gn'_`var'_wk.eps", replace;
 	
-        eventdd `var' i.t i.comuna poblacion `opt', timevar(timeToQ) ci(rcap)
-        lags(20) leads(3) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
-        graph_op(xlabel(-20 "{&le} -20" -15 "-15" -10 "-10" -5 "-5" -1 "-1"
-                        0 "0" 1 "+1" 2 "+2" 3 "+3" 5 "+5")
+        eventdd `var' i.week i.comuna poblacion `opt', timevar(timeToQ) ci(rcap)
+        lags(20) leads(10) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 10 "{&ge} 10")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
-                 ytitle("Crime Rate (per capita)"));
-        graph export "$OUT/eventdd/event2`gn'_`var'.eps", replace;
+                 ytitle("Crime Rate per 100,000 people"));
+        graph export "$OUT/eventdd/event2`gn'_`var'_wk.eps", replace;
         
-	eventdd `var' i.t i.comuna mobility_externo mobility_interno `opt',
-        timevar(timeToQ) ci(rcap) lags(20) leads(3)
+	eventdd `var' i.week i.comuna mobility_externo mobility_interno `opt',
+        timevar(timeToQ) ci(rcap) lags(20) leads(10)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
-        graph_op(xlabel(-20 "{&le} -20" -15 "-15" -10 "-10" -5 "-5" -1 "-1"
-                        0 "0" 1 "+1" 2 "+2" 3 "+3" 5 "+5")
+        graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 10 "{&ge} 10")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
-                 ytitle("Crime Rate (per capita)"));
-        graph export "$OUT/eventdd/event3`gn'_`var'.eps", replace;
+                 ytitle("Crime Rate per 100,000 people"));
+        graph export "$OUT/eventdd/event3`gn'_`var'_wk.eps", replace;
 	
-	eventdd `var' i.t i.comuna poblacion mobility_externo mobility_interno `opt',
-        timevar(timeToQ) ci(rcap) lags(20) leads(3)
+	eventdd `var' i.week i.comuna poblacion mobility_externo mobility_interno `opt',
+        timevar(timeToQ) ci(rcap) lags(20) leads(10)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
-        graph_op(xlabel(-20 "{&le} -20" -15 "-15" -10 "-10" -5 "-5" -1 "-1" 0
-                        "0" 1 "+1" 2 "+2" 3 "+3" 5 "+5")
+        graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 10 "{&ge} 10")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
-                 ytitle("Crime Rate (per capita)"));
-        graph export "$OUT/eventdd/event4`gn'_`var'.eps", replace;
+                 ytitle("Crime Rate per 100,000 people"));
+        graph export "$OUT/eventdd/event4`gn'_`var'_wk.eps", replace;
 	#delimit cr
     }
     graph drop _all
 }
+restore
 
 *-------------------------------------------------------------------------------
 *--- (4) Two way FEs
@@ -331,11 +402,13 @@ foreach var of varlist `outcomespc' {
 *-------------------------------------------------------------------------------
 *--- (5) Sharp Difference-in-Difference
 *-------------------------------------------------------------------------------
-***DANIEL: Aquí propongo que trabajemos a nivel de semana...  Si realizamos algo
-*** como el proceso de hacer un estudio de ventos semanal, nos va a dar mucho
-*** mas estabilidad en los 'lags' y 'leads'.  Si no es claro, me avises! GRACIAS!
+sort comuna year month day
+by comuna: gen time = _n
+gen week = ceil(time/7)
+collapse poblacion quarantine (sum) `outcomespc', by(comuna week)
+replace quarantine=1 if quarantine!=0
+local fes comuna week
 
-local fes comuna t
 foreach wt in no yes {
     if "`wt'"=="no"  {
         local opt placebo(5) dynamic(3) breps(50) cluster(comuna)
@@ -364,11 +437,3 @@ foreach wt in no yes {
     }
     graph drop _all
 }
-
-
-
-
- 
- 
- 
- 
