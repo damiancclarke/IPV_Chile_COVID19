@@ -266,7 +266,7 @@ foreach wt in no yes {
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event2`gn'_`var'.eps", replace;
         
-	eventdd `var' i.t i.comuna mobility_externo mobility_interno `opt',
+	eventdd `var' i.t i.comuna mobility_ext mobility_int `opt',
         timevar(timeToQ) ci(rcap) lags(50) leads(50)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-50 "{&le} -50" -25 "-25" 0 "0" 25 "25" 50 "{&ge} 50")
@@ -274,7 +274,7 @@ foreach wt in no yes {
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event3`gn'_`var'.eps", replace;
 	
-	eventdd `var' i.t i.comuna poblacion mobility_externo mobility_interno `opt',
+	eventdd `var' i.t i.comuna poblacion mobility_ext mobility_int `opt',
         timevar(timeToQ) ci(rcap) lags(50) leads(50)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-50 "{&le} -50" -25 "-25" 0 "0" 25 "25" 50 "{&ge} 50")
@@ -292,7 +292,7 @@ drop timeToQ
 sort comuna year month day
 by comuna: gen time = _n
 gen week = ceil(time/7)
-collapse poblacion quarantine (sum) `outcomespc', by(comuna week)
+collapse poblacion mobility_ext mobility_int quarantine (sum) `outcomespc', by(comuna week)
 gen minn = week if quarantine!=0
 bys comuna: egen qstart = min(minn)
 gen timeToQ = week-qstart
@@ -322,7 +322,7 @@ foreach wt in no yes {
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event2`gn'_`var'_wk.eps", replace;
         
-	eventdd `var' i.week i.comuna mobility_externo mobility_interno `opt',
+	eventdd `var' i.week i.comuna mobility_ext mobility_int `opt',
         timevar(timeToQ) ci(rcap) lags(20) leads(10)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 10 "{&ge} 10")
@@ -330,7 +330,7 @@ foreach wt in no yes {
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event3`gn'_`var'_wk.eps", replace;
 	
-	eventdd `var' i.week i.comuna poblacion mobility_externo mobility_interno `opt',
+	eventdd `var' i.week i.comuna poblacion mobility_ext mobility_int `opt',
         timevar(timeToQ) ci(rcap) lags(20) leads(10)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 10 "{&ge} 10")
@@ -403,7 +403,7 @@ foreach var of varlist `outcomespc' {
 sort comuna year month day
 by comuna: gen time = _n
 gen week = ceil(time/7)
-collapse poblacion quarantine (sum) `outcomespc', by(comuna week)
+collapse poblacion mobility_ext mobility_int quarantine (sum) `outcomespc', by(comuna week)
 replace quarantine=1 if quarantine!=0
 local fes comuna week
 
