@@ -287,8 +287,6 @@ foreach wt in no yes {
 }
 
 *By Week
-***DAMIAN aca cuando hacemos sort creo que lo correcto es añadir year sino la 
-***semanas quedan 'corridas'
 preserve
 drop timeToQ
 sort comuna year month day
