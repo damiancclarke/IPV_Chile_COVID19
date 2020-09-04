@@ -177,7 +177,7 @@ restore
 ***que compara tasas de 2019 y 2020 y que tiene la linea de 45 grados que
 ***tenemos en el archivo SPDdesc.do.  Avísame si no tienes el archivo y te
 ***lo envio!  
-*TRABAJANDO EN ESTO :)
+/*TRABAJANDO EN ESTO :)
 
 *aqui lo solicitado
 *preserve
@@ -235,7 +235,7 @@ twoway (function x, range(0 200) n(2) lcolor(red)) ///
 (scatter denuncias2020 denuncias2019 if period==2&denuncias2020<200& quarantine==1, ms(Dh) mcolor(blue) mlabel(comuna) mlabsize(vsmall) legend(off)), ///
 ytitle("Denuncias 2020") xtitle("Denuncias 2019") xlabel(0(100)320)
 graph export denunciasComunas_under200_quarantine.eps, replace
-*hasta aca lo solicitado
+*hasta aca lo solicitado*/
 
 *-------------------------------------------------------------------------------
 *--- (3) Event Study
