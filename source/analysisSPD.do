@@ -68,12 +68,12 @@ drop if comuna==.|t==.
 
 levelsof comuna, local(comunas)
 foreach tp in externo interno {
-foreach c of local comunas {
-	if "`c'"!="11302"&"`c'"!="12202"{
-		qui sum mobility_`tp' if t>=21971&t<=21989&comuna==`c'
-		replace mobility_`tp'=`r(mean)' if t<21971&comuna==`c'
-	}
-}
+    foreach c of local comunas {
+        if "`c'"!="11302"&"`c'"!="12202"{
+            qui sum mobility_`tp' if t>=21971&t<=21989&comuna==`c'
+            replace mobility_`tp'=`r(mean)' if t<21971&comuna==`c'
+        }
+    }
 }
 
 *-------------------------------------------------------------------------------
@@ -309,31 +309,31 @@ foreach wt in no yes {
     foreach var of varlist `outcomespc' {
         #delimit ;
         eventdd `var' i.week i.comuna `opt', timevar(timeToQ) ci(rcap) lags(20)
-        leads(10) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
-        graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 10 "{&ge} 10")
+        leads(9) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 9 "{&ge} 9")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event1`gn'_`var'_wk.eps", replace;
 	
         eventdd `var' i.week i.comuna poblacion `opt', timevar(timeToQ) ci(rcap)
-        lags(20) leads(10) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
-        graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 10 "{&ge} 10")
+        lags(20) leads(9) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 9 "{&ge} 9")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event2`gn'_`var'_wk.eps", replace;
         
 	eventdd `var' i.week i.comuna mobility_ext mobility_int `opt',
-        timevar(timeToQ) ci(rcap) lags(20) leads(10)
+        timevar(timeToQ) ci(rcap) lags(20) leads(9)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
-        graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 10 "{&ge} 10")
+        graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 9 "{&ge} 9")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event3`gn'_`var'_wk.eps", replace;
 	
 	eventdd `var' i.week i.comuna poblacion mobility_ext mobility_int `opt',
-        timevar(timeToQ) ci(rcap) lags(20) leads(10)
+        timevar(timeToQ) ci(rcap) lags(20) leads(9)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
-        graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 10 "{&ge} 10")
+        graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 9 "{&ge} 9")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event4`gn'_`var'_wk.eps", replace;
@@ -390,7 +390,7 @@ foreach var of varlist `outcomespc' {
     local ests est1 est2 est3 est4 est5 est6 est7 est8
     #delimit ;
     esttab `ests' using "$OUT/areg/DD_`var'.tex", b(%-9.3f) se(%-9.3f) noobs
-    keep(mobility_ext mobility_int poblacion quarantine) nonotes nogaps
+    keep(mobility_externo mobility_interno poblacion quarantine) nonotes nogaps
     mlabels(, none) nonumbers style(tex) fragment replace noline label
     starlevel ("*" 0.10 "**" 0.05 "***" 0.01);
     #delimit cr
