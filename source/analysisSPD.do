@@ -199,7 +199,7 @@ twoway (function x, range(0 200) n(2) lcolor(red))
 (scatter denuncias2020 denuncias2019 if period==1&denuncias2020<200, mlabel(comuna) 
 mlabsize(vsmall) legend(off) ytitle("Crimes 2020") xtitle("Crimes 2019") 
 xlabel(0(100)320)); 
-graph export "$OUT/descriptives/denunciasComunas_under200_PRE.eps", replace:
+graph export "$OUT/descriptives/denunciasComunas_under200_PRE.eps", replace;
 #delimit cr
 restore
 
