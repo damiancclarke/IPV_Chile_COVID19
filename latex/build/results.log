@@ -1,0 +1,1335 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.14)  8 SEP 2020 20:23
+entering extended mode
+**./results.tex
+(results.tex
+LaTeX2e <2018-04-01> patch level 5
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size11.clo"
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.
+sty"
+Package: geometry 2018/04/16 v5.8 Page Geometry
+
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.st
+y"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.s
+ty"
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.
+sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.
+sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.
+cfg"))
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.
+sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics.
+sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\graph
+ics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdfte
+x.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen111
+\Gin@req@width=\dimen112
+)
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\longtable.st
+y"
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip43
+\LTright=\skip44
+\LTpre=\skip45
+\LTpost=\skip46
+\LTchunksize=\count91
+\LTcapwidth=\dimen113
+\LT@head=\box26
+\LT@firsthead=\box27
+\LT@foot=\box28
+\LT@lastfoot=\box29
+\LT@cols=\count92
+\LT@rows=\count93
+\c@LT@tables=\count94
+\c@LT@chunks=\count95
+\LT@p@ftn=\toks16
+)
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\booktabs\booktabs.
+sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen114
+\lightrulewidth=\dimen115
+\cmidrulewidth=\dimen116
+\belowrulesep=\dimen117
+\belowbottomsep=\dimen118
+\aboverulesep=\dimen119
+\abovetopsep=\dimen120
+\cmidrulesep=\dimen121
+\cmidrulekern=\dimen122
+\defaultaddspace=\dimen123
+\@cmidla=\count96
+\@cmidlb=\count97
+\@aboverulesep=\dimen124
+\@belowrulesep=\dimen125
+\@thisruleclass=\count98
+\@lastruleclass=\count99
+\@thisrulewidth=\dimen126
+)
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\lscape.st
+y"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+No file results.aux.
+\openout1 = `results.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 500.484pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=500.484pt
+* \textheight=681.15898pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mk
+ii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count100
+\scratchdimen=\dimen127
+\scratchbox=\box30
+\nofMPsegments=\count101
+\nofMParguments=\count102
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count103
+\MPscratchDim=\dimen128
+\MPnumerator=\count104
+\makeMPintoPDFobject=\count105
+\everyMPtoPDFconversion=\toks18
+)
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-
+base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\infware
+rr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\grfext.st
+y"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\kvdefin
+ekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds
+.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\kvoptions
+.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\kvsetke
+ys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\etexcmd
+s.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifluate
+x.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+("C:\Users\danie\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\pdftexc
+mds.sty"
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+
+LaTeX Warning: File `../spd/descriptives/Denuncias_month_20192020.eps' not foun
+d on input line 15.
+
+Package epstopdf Info: Source file: <../spd/descriptives/Denuncias_month_201920
+20.eps>
+(epstopdf)             Output file: <../spd/descriptives/Denuncias_month_201920
+20-eps-converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/descriptives/Denunci
+as_month_20192020-eps-converted-to.pdf ../spd/descriptives/Denuncias_month_2019
+2020.eps>
+(epstopdf)             \includegraphics on input line 15.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/descriptives/Denuncias_month_20192020-
+eps-converted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.15 ...descriptives/Denuncias_month_20192020.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/descriptives/denunciasNacional.eps' not found on in
+put line 21.
+
+Package epstopdf Info: Source file: <../spd/descriptives/denunciasNacional.eps>
+
+(epstopdf)             Output file: <../spd/descriptives/denunciasNacional-eps-
+converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/descriptives/denunci
+asNacional-eps-converted-to.pdf ../spd/descriptives/denunciasNacional.eps>
+(epstopdf)             \includegraphics on input line 21.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/descriptives/denunciasNacional-eps-con
+verted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 ...../spd/descriptives/denunciasNacional.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/descriptives/victimasFNacional.eps' not found on in
+put line 27.
+
+Package epstopdf Info: Source file: <../spd/descriptives/victimasFNacional.eps>
+
+(epstopdf)             Output file: <../spd/descriptives/victimasFNacional-eps-
+converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/descriptives/victima
+sFNacional-eps-converted-to.pdf ../spd/descriptives/victimasFNacional.eps>
+(epstopdf)             \includegraphics on input line 27.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/descriptives/victimasFNacional-eps-con
+verted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 ...../spd/descriptives/victimasFNacional.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/descriptives/victimasMNacional.eps' not found on in
+put line 33.
+
+Package epstopdf Info: Source file: <../spd/descriptives/victimasMNacional.eps>
+
+(epstopdf)             Output file: <../spd/descriptives/victimasMNacional-eps-
+converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/descriptives/victima
+sMNacional-eps-converted-to.pdf ../spd/descriptives/victimasMNacional.eps>
+(epstopdf)             \includegraphics on input line 33.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/descriptives/victimasMNacional-eps-con
+verted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...../spd/descriptives/victimasMNacional.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/descriptives/denunciasRegion149.eps' not found on i
+nput line 39.
+
+Package epstopdf Info: Source file: <../spd/descriptives/denunciasRegion149.eps
+>
+(epstopdf)             Output file: <../spd/descriptives/denunciasRegion149-eps
+-converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/descriptives/denunci
+asRegion149-eps-converted-to.pdf ../spd/descriptives/denunciasRegion149.eps>
+(epstopdf)             \includegraphics on input line 39.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/descriptives/denunciasRegion149-eps-co
+nverted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.39 ..../spd/descriptives/denunciasRegion149.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/descriptives/victimasRegion149.eps' not found on in
+put line 45.
+
+Package epstopdf Info: Source file: <../spd/descriptives/victimasRegion149.eps>
+
+(epstopdf)             Output file: <../spd/descriptives/victimasRegion149-eps-
+converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/descriptives/victima
+sRegion149-eps-converted-to.pdf ../spd/descriptives/victimasRegion149.eps>
+(epstopdf)             \includegraphics on input line 45.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/descriptives/victimasRegion149-eps-con
+verted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 ...../spd/descriptives/victimasRegion149.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/descriptives/victimasMRegion149.eps' not found on i
+nput line 51.
+
+Package epstopdf Info: Source file: <../spd/descriptives/victimasMRegion149.eps
+>
+(epstopdf)             Output file: <../spd/descriptives/victimasMRegion149-eps
+-converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/descriptives/victima
+sMRegion149-eps-converted-to.pdf ../spd/descriptives/victimasMRegion149.eps>
+(epstopdf)             \includegraphics on input line 51.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/descriptives/victimasMRegion149-eps-co
+nverted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.51 ..../spd/descriptives/victimasMRegion149.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/descriptives/denunciasComunas.eps' not found on inp
+ut line 57.
+
+Package epstopdf Info: Source file: <../spd/descriptives/denunciasComunas.eps>
+(epstopdf)             Output file: <../spd/descriptives/denunciasComunas-eps-c
+onverted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/descriptives/denunci
+asComunas-eps-converted-to.pdf ../spd/descriptives/denunciasComunas.eps>
+(epstopdf)             \includegraphics on input line 57.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/descriptives/denunciasComunas-eps-conv
+erted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 ...{../spd/descriptives/denunciasComunas.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/descriptives/denunciasComunas_under200.eps' not fou
+nd on input line 63.
+
+Package epstopdf Info: Source file: <../spd/descriptives/denunciasComunas_under
+200.eps>
+(epstopdf)             Output file: <../spd/descriptives/denunciasComunas_under
+200-eps-converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/descriptives/denunci
+asComunas_under200-eps-converted-to.pdf ../spd/descriptives/denunciasComunas_un
+der200.eps>
+(epstopdf)             \includegraphics on input line 63.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/descriptives/denunciasComunas_under200
+-eps-converted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.63 ...escriptives/denunciasComunas_under200.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/descriptives/denunciasComunas_PRE.eps' not found on
+ input line 69.
+
+Package epstopdf Info: Source file: <../spd/descriptives/denunciasComunas_PRE.e
+ps>
+(epstopdf)             Output file: <../spd/descriptives/denunciasComunas_PRE-e
+ps-converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/descriptives/denunci
+asComunas_PRE-eps-converted-to.pdf ../spd/descriptives/denunciasComunas_PRE.eps
+>
+(epstopdf)             \includegraphics on input line 69.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/descriptives/denunciasComunas_PRE-eps-
+converted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.69 ...spd/descriptives/denunciasComunas_PRE.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/descriptives/denunciasComunas_under200_PRE.eps' not
+ found on input line 75.
+
+Package epstopdf Info: Source file: <../spd/descriptives/denunciasComunas_under
+200_PRE.eps>
+(epstopdf)             Output file: <../spd/descriptives/denunciasComunas_under
+200_PRE-eps-converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/descriptives/denunci
+asComunas_under200_PRE-eps-converted-to.pdf ../spd/descriptives/denunciasComuna
+s_under200_PRE.eps>
+(epstopdf)             \includegraphics on input line 75.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/descriptives/denunciasComunas_under200
+_PRE-eps-converted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.75 ...iptives/denunciasComunas_under200_PRE.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event1_denuncias.eps' not found on input li
+ne 85.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event1_denuncias.eps>
+(epstopdf)             Output file: <../spd/eventdd/event1_denuncias-eps-conver
+ted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event1_denun
+cias-eps-converted-to.pdf ../spd/eventdd/event1_denuncias.eps>
+(epstopdf)             \includegraphics on input line 85.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event1_denuncias-eps-converted
+-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.85 ...le=1]{../spd/eventdd/event1_denuncias.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event1_Wt_denuncias.eps' not found on input
+ line 91.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event1_Wt_denuncias.eps>
+(epstopdf)             Output file: <../spd/eventdd/event1_Wt_denuncias-eps-con
+verted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event1_Wt_de
+nuncias-eps-converted-to.pdf ../spd/eventdd/event1_Wt_denuncias.eps>
+(epstopdf)             \includegraphics on input line 91.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event1_Wt_denuncias-eps-conver
+ted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.91 ...1]{../spd/eventdd/event1_Wt_denuncias.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event2_denuncias.eps' not found on input li
+ne 97.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event2_denuncias.eps>
+(epstopdf)             Output file: <../spd/eventdd/event2_denuncias-eps-conver
+ted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event2_denun
+cias-eps-converted-to.pdf ../spd/eventdd/event2_denuncias.eps>
+(epstopdf)             \includegraphics on input line 97.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event2_denuncias-eps-converted
+-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.97 ...le=1]{../spd/eventdd/event2_denuncias.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event2_Wt_denuncias.eps' not found on input
+ line 103.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event2_Wt_denuncias.eps>
+(epstopdf)             Output file: <../spd/eventdd/event2_Wt_denuncias-eps-con
+verted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event2_Wt_de
+nuncias-eps-converted-to.pdf ../spd/eventdd/event2_Wt_denuncias.eps>
+(epstopdf)             \includegraphics on input line 103.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event2_Wt_denuncias-eps-conver
+ted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103 ...]{../spd/eventdd/event2_Wt_denuncias.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event3_denuncias.eps' not found on input li
+ne 109.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event3_denuncias.eps>
+(epstopdf)             Output file: <../spd/eventdd/event3_denuncias-eps-conver
+ted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event3_denun
+cias-eps-converted-to.pdf ../spd/eventdd/event3_denuncias.eps>
+(epstopdf)             \includegraphics on input line 109.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event3_denuncias-eps-converted
+-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109 ...e=1]{../spd/eventdd/event3_denuncias.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event3_Wt_denuncias.eps' not found on input
+ line 115.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event3_Wt_denuncias.eps>
+(epstopdf)             Output file: <../spd/eventdd/event3_Wt_denuncias-eps-con
+verted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event3_Wt_de
+nuncias-eps-converted-to.pdf ../spd/eventdd/event3_Wt_denuncias.eps>
+(epstopdf)             \includegraphics on input line 115.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event3_Wt_denuncias-eps-conver
+ted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.115 ...]{../spd/eventdd/event3_Wt_denuncias.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event4_denuncias.eps' not found on input li
+ne 121.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event4_denuncias.eps>
+(epstopdf)             Output file: <../spd/eventdd/event4_denuncias-eps-conver
+ted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event4_denun
+cias-eps-converted-to.pdf ../spd/eventdd/event4_denuncias.eps>
+(epstopdf)             \includegraphics on input line 121.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event4_denuncias-eps-converted
+-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121 ...e=1]{../spd/eventdd/event4_denuncias.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event4_Wt_denuncias.eps' not found on input
+ line 127.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event4_Wt_denuncias.eps>
+(epstopdf)             Output file: <../spd/eventdd/event4_Wt_denuncias-eps-con
+verted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event4_Wt_de
+nuncias-eps-converted-to.pdf ../spd/eventdd/event4_Wt_denuncias.eps>
+(epstopdf)             \includegraphics on input line 127.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event4_Wt_denuncias-eps-conver
+ted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.127 ...]{../spd/eventdd/event4_Wt_denuncias.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event1_denuncias_wk.eps' not found on input
+ line 135.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event1_denuncias_wk.eps>
+(epstopdf)             Output file: <../spd/eventdd/event1_denuncias_wk-eps-con
+verted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event1_denun
+cias_wk-eps-converted-to.pdf ../spd/eventdd/event1_denuncias_wk.eps>
+(epstopdf)             \includegraphics on input line 135.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event1_denuncias_wk-eps-conver
+ted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 ...]{../spd/eventdd/event1_denuncias_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event1_Wt_denuncias_wk.eps' not found on in
+put line 141.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event1_Wt_denuncias_wk.eps>
+
+(epstopdf)             Output file: <../spd/eventdd/event1_Wt_denuncias_wk-eps-
+converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event1_Wt_de
+nuncias_wk-eps-converted-to.pdf ../spd/eventdd/event1_Wt_denuncias_wk.eps>
+(epstopdf)             \includegraphics on input line 141.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event1_Wt_denuncias_wk-eps-con
+verted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ..../spd/eventdd/event1_Wt_denuncias_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event2_denuncias_wk.eps' not found on input
+ line 147.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event2_denuncias_wk.eps>
+(epstopdf)             Output file: <../spd/eventdd/event2_denuncias_wk-eps-con
+verted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event2_denun
+cias_wk-eps-converted-to.pdf ../spd/eventdd/event2_denuncias_wk.eps>
+(epstopdf)             \includegraphics on input line 147.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event2_denuncias_wk-eps-conver
+ted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.147 ...]{../spd/eventdd/event2_denuncias_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event2_Wt_denuncias_wk.eps' not found on in
+put line 153.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event2_Wt_denuncias_wk.eps>
+
+(epstopdf)             Output file: <../spd/eventdd/event2_Wt_denuncias_wk-eps-
+converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event2_Wt_de
+nuncias_wk-eps-converted-to.pdf ../spd/eventdd/event2_Wt_denuncias_wk.eps>
+(epstopdf)             \includegraphics on input line 153.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event2_Wt_denuncias_wk-eps-con
+verted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.153 ..../spd/eventdd/event2_Wt_denuncias_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event3_denuncias_wk.eps' not found on input
+ line 159.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event3_denuncias_wk.eps>
+(epstopdf)             Output file: <../spd/eventdd/event3_denuncias_wk-eps-con
+verted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event3_denun
+cias_wk-eps-converted-to.pdf ../spd/eventdd/event3_denuncias_wk.eps>
+(epstopdf)             \includegraphics on input line 159.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event3_denuncias_wk-eps-conver
+ted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.159 ...]{../spd/eventdd/event3_denuncias_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event3_Wt_denuncias_wk.eps' not found on in
+put line 165.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event3_Wt_denuncias_wk.eps>
+
+(epstopdf)             Output file: <../spd/eventdd/event3_Wt_denuncias_wk-eps-
+converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event3_Wt_de
+nuncias_wk-eps-converted-to.pdf ../spd/eventdd/event3_Wt_denuncias_wk.eps>
+(epstopdf)             \includegraphics on input line 165.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event3_Wt_denuncias_wk-eps-con
+verted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.165 ..../spd/eventdd/event3_Wt_denuncias_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event4_denuncias_wk.eps' not found on input
+ line 171.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event4_denuncias_wk.eps>
+(epstopdf)             Output file: <../spd/eventdd/event4_denuncias_wk-eps-con
+verted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event4_denun
+cias_wk-eps-converted-to.pdf ../spd/eventdd/event4_denuncias_wk.eps>
+(epstopdf)             \includegraphics on input line 171.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event4_denuncias_wk-eps-conver
+ted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.171 ...]{../spd/eventdd/event4_denuncias_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event4_Wt_denuncias_wk.eps' not found on in
+put line 177.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event4_Wt_denuncias_wk.eps>
+
+(epstopdf)             Output file: <../spd/eventdd/event4_Wt_denuncias_wk-eps-
+converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event4_Wt_de
+nuncias_wk-eps-converted-to.pdf ../spd/eventdd/event4_Wt_denuncias_wk.eps>
+(epstopdf)             \includegraphics on input line 177.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event4_Wt_denuncias_wk-eps-con
+verted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.177 ..../spd/eventdd/event4_Wt_denuncias_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event1_victimas.eps' not found on input lin
+e 185.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event1_victimas.eps>
+(epstopdf)             Output file: <../spd/eventdd/event1_victimas-eps-convert
+ed-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event1_victi
+mas-eps-converted-to.pdf ../spd/eventdd/event1_victimas.eps>
+(epstopdf)             \includegraphics on input line 185.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event1_victimas-eps-converted-
+to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.185 ...le=1]{../spd/eventdd/event1_victimas.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event1_Wt_victimas.eps' not found on input 
+line 191.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event1_Wt_victimas.eps>
+(epstopdf)             Output file: <../spd/eventdd/event1_Wt_victimas-eps-conv
+erted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event1_Wt_vi
+ctimas-eps-converted-to.pdf ../spd/eventdd/event1_Wt_victimas.eps>
+(epstopdf)             \includegraphics on input line 191.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event1_Wt_victimas-eps-convert
+ed-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.191 ...1]{../spd/eventdd/event1_Wt_victimas.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event2_victimas.eps' not found on input lin
+e 197.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event2_victimas.eps>
+(epstopdf)             Output file: <../spd/eventdd/event2_victimas-eps-convert
+ed-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event2_victi
+mas-eps-converted-to.pdf ../spd/eventdd/event2_victimas.eps>
+(epstopdf)             \includegraphics on input line 197.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event2_victimas-eps-converted-
+to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.197 ...le=1]{../spd/eventdd/event2_victimas.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event2_Wt_victimas.eps' not found on input 
+line 203.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event2_Wt_victimas.eps>
+(epstopdf)             Output file: <../spd/eventdd/event2_Wt_victimas-eps-conv
+erted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event2_Wt_vi
+ctimas-eps-converted-to.pdf ../spd/eventdd/event2_Wt_victimas.eps>
+(epstopdf)             \includegraphics on input line 203.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event2_Wt_victimas-eps-convert
+ed-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.203 ...1]{../spd/eventdd/event2_Wt_victimas.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event3_victimas.eps' not found on input lin
+e 209.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event3_victimas.eps>
+(epstopdf)             Output file: <../spd/eventdd/event3_victimas-eps-convert
+ed-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event3_victi
+mas-eps-converted-to.pdf ../spd/eventdd/event3_victimas.eps>
+(epstopdf)             \includegraphics on input line 209.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event3_victimas-eps-converted-
+to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.209 ...le=1]{../spd/eventdd/event3_victimas.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event3_Wt_victimas.eps' not found on input 
+line 215.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event3_Wt_victimas.eps>
+(epstopdf)             Output file: <../spd/eventdd/event3_Wt_victimas-eps-conv
+erted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event3_Wt_vi
+ctimas-eps-converted-to.pdf ../spd/eventdd/event3_Wt_victimas.eps>
+(epstopdf)             \includegraphics on input line 215.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event3_Wt_victimas-eps-convert
+ed-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.215 ...1]{../spd/eventdd/event3_Wt_victimas.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event4_victimas.eps' not found on input lin
+e 221.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event4_victimas.eps>
+(epstopdf)             Output file: <../spd/eventdd/event4_victimas-eps-convert
+ed-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event4_victi
+mas-eps-converted-to.pdf ../spd/eventdd/event4_victimas.eps>
+(epstopdf)             \includegraphics on input line 221.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event4_victimas-eps-converted-
+to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.221 ...le=1]{../spd/eventdd/event4_victimas.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event4_Wt_victimas.eps' not found on input 
+line 227.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event4_Wt_victimas.eps>
+(epstopdf)             Output file: <../spd/eventdd/event4_Wt_victimas-eps-conv
+erted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event4_Wt_vi
+ctimas-eps-converted-to.pdf ../spd/eventdd/event4_Wt_victimas.eps>
+(epstopdf)             \includegraphics on input line 227.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event4_Wt_victimas-eps-convert
+ed-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.227 ...1]{../spd/eventdd/event4_Wt_victimas.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event1_victimas_wk.eps' not found on input 
+line 235.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event1_victimas_wk.eps>
+(epstopdf)             Output file: <../spd/eventdd/event1_victimas_wk-eps-conv
+erted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event1_victi
+mas_wk-eps-converted-to.pdf ../spd/eventdd/event1_victimas_wk.eps>
+(epstopdf)             \includegraphics on input line 235.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event1_victimas_wk-eps-convert
+ed-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.235 ...1]{../spd/eventdd/event1_victimas_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event1_Wt_victimas_wk.eps' not found on inp
+ut line 241.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event1_Wt_victimas_wk.eps>
+(epstopdf)             Output file: <../spd/eventdd/event1_Wt_victimas_wk-eps-c
+onverted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event1_Wt_vi
+ctimas_wk-eps-converted-to.pdf ../spd/eventdd/event1_Wt_victimas_wk.eps>
+(epstopdf)             \includegraphics on input line 241.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event1_Wt_victimas_wk-eps-conv
+erted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.241 ...../spd/eventdd/event1_Wt_victimas_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event2_victimas_wk.eps' not found on input 
+line 247.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event2_victimas_wk.eps>
+(epstopdf)             Output file: <../spd/eventdd/event2_victimas_wk-eps-conv
+erted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event2_victi
+mas_wk-eps-converted-to.pdf ../spd/eventdd/event2_victimas_wk.eps>
+(epstopdf)             \includegraphics on input line 247.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event2_victimas_wk-eps-convert
+ed-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.247 ...1]{../spd/eventdd/event2_victimas_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event2_Wt_victimas_wk.eps' not found on inp
+ut line 253.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event2_Wt_victimas_wk.eps>
+(epstopdf)             Output file: <../spd/eventdd/event2_Wt_victimas_wk-eps-c
+onverted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event2_Wt_vi
+ctimas_wk-eps-converted-to.pdf ../spd/eventdd/event2_Wt_victimas_wk.eps>
+(epstopdf)             \includegraphics on input line 253.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event2_Wt_victimas_wk-eps-conv
+erted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.253 ...../spd/eventdd/event2_Wt_victimas_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event3_victimas_wk.eps' not found on input 
+line 259.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event3_victimas_wk.eps>
+(epstopdf)             Output file: <../spd/eventdd/event3_victimas_wk-eps-conv
+erted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event3_victi
+mas_wk-eps-converted-to.pdf ../spd/eventdd/event3_victimas_wk.eps>
+(epstopdf)             \includegraphics on input line 259.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event3_victimas_wk-eps-convert
+ed-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.259 ...1]{../spd/eventdd/event3_victimas_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event3_Wt_victimas_wk.eps' not found on inp
+ut line 265.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event3_Wt_victimas_wk.eps>
+(epstopdf)             Output file: <../spd/eventdd/event3_Wt_victimas_wk-eps-c
+onverted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event3_Wt_vi
+ctimas_wk-eps-converted-to.pdf ../spd/eventdd/event3_Wt_victimas_wk.eps>
+(epstopdf)             \includegraphics on input line 265.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event3_Wt_victimas_wk-eps-conv
+erted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.265 ...../spd/eventdd/event3_Wt_victimas_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event4_victimas_wk.eps' not found on input 
+line 271.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event4_victimas_wk.eps>
+(epstopdf)             Output file: <../spd/eventdd/event4_victimas_wk-eps-conv
+erted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event4_victi
+mas_wk-eps-converted-to.pdf ../spd/eventdd/event4_victimas_wk.eps>
+(epstopdf)             \includegraphics on input line 271.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event4_victimas_wk-eps-convert
+ed-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.271 ...1]{../spd/eventdd/event4_victimas_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `../spd/eventdd/event4_Wt_victimas_wk.eps' not found on inp
+ut line 277.
+
+Package epstopdf Info: Source file: <../spd/eventdd/event4_Wt_victimas_wk.eps>
+(epstopdf)             Output file: <../spd/eventdd/event4_Wt_victimas_wk-eps-c
+onverted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=../spd/eventdd/event4_Wt_vi
+ctimas_wk-eps-converted-to.pdf ../spd/eventdd/event4_Wt_victimas_wk.eps>
+(epstopdf)             \includegraphics on input line 277.
+Package epstopdf Info: Output file is already uptodate.
+
+! Package pdftex.def Error: File `../spd/eventdd/event4_Wt_victimas_wk-eps-conv
+erted-to.pdf' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.277 ...../spd/eventdd/event4_Wt_victimas_wk.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[1
+
+{C:/Users/danie/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+[3] [4] [5] [6] [7] [8]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 286.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 286.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 286.
+
+
+! LaTeX Error: File `../spd/areg/DD_denunciaspc.tex' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.290       \input{../spd/areg/DD_denunciaspc.tex}
+                                                   \midrule
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 2127 strings out of 492970
+ 32033 string characters out of 3126593
+ 108038 words of memory out of 3000000
+ 5944 multiletter control sequences out of 15000+200000
+ 8065 words of font info for 29 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,8n,25p,276b,266s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
