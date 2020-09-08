@@ -117,7 +117,7 @@ tsline victimas_f if year==2018, lcolor(gs13) lpattern(solid) ||
 tsline victimas_f if year==2019, lcolor(gs13) lpattern(solid) ||
 tsline victimas_f if year==2020, lcolor(gs3) lpattern(solid)
 legend(order(1 "Year 2018" 2 "year 2019" 3 "Year 2020"))
-ytitle("Female Victims por per 10,000 people") xtitle("")
+ytitle("Female Victims per 10,000 people") xtitle("")
 xlabel(21185 "1 January" 21216 "1 February" 21244 "1 March"
        21275 "1 April" 21305 "1 May" 21336 "1 June", angle(45));
 graph export "$OUT/descriptives/victimasFNacional.eps", replace;
@@ -126,7 +126,7 @@ tsline victimas_m if year==2018, lcolor(gs13) lpattern(solid) ||
 tsline victimas_m if year==2019, lcolor(gs13) lpattern(solid) ||
 tsline victimas_m if year==2020, lcolor(gs3) lpattern(solid)
 legend(order(1 "Year 2018" 2 "year 2019" 3 "Year 2020"))
-ytitle("Male Victims por per 10,000 people") xtitle("")
+ytitle("Male Victims per 10,000 people") xtitle("")
 xlabel(21185 "1 January" 21216 "1 February" 21244 "1 March"
        21275 "1 April" 21305 "1 May" 21336 "1 June"", angle(45));
 graph export "$OUT/descriptives/victimasMNacional.eps", replace;
