@@ -1,10 +1,9 @@
 \documentclass[11pt,letterpaper]{article}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{graphicx}
-
-%\usepackage{xcolor,colortbl}
-%\usepackage{booktabs}
-%\usepackage{float}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{lscape}
 
 %------------------------------------------------%
 \begin{document}
@@ -279,6 +278,28 @@
 \end{figure}
 
 \section{Two way FEs}
+
+\begin{landscape}
+  \begin{table}
+    \centering
+    \caption{Difference-in-Differences Estimates of...} \label{tab:DD}
+    \begin{tabular}{lcccccccc} \toprule
+      &\multicolumn{4}{c}{Without Population Weight}&\multicolumn{4}{c}{With Population Weight} \\ 
+      \cmidrule(r){2-5}\cmidrule(r){6-9}
+      &(1)&(2)&(3)&(4)&(5)&(6)&(7)&(8) \\ \midrule
+      \multicolumn{9}{l}{\textbf{Panel A: Crimes}} \\
+      \input{../spd/areg/DD_denunciaspc.tex} \midrule
+      \multicolumn{9}{l}{\textbf{Panel B: Victims}} \\
+      \input{../spd/areg/DD_victimaspc.tex}
+      \midrule
+      Municipality and Day FEs &Y&Y&Y&Y&Y&Y&Y&Y \\
+      Population Controls      & &Y& &Y& &Y& &Y \\
+      Mobility Controls        & & &Y&Y& & &Y&Y \\
+      \bottomrule
+      \multicolumn{9}{p{21.8cm}}{{\footnotesize Notes: Each column displays a difference-in-differences regression of the impact of quarantine on crimes and victims rates. Both variables are measured as cases per 100.000 people.  All standard errors are clustered at the level of the municipality.}}
+    \end{tabular}
+  \end{table}
+\end{landscape}
 
 \section{Sharp Difference-in-Difference}
 	\subsection{Denuncias}
