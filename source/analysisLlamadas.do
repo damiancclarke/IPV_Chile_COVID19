@@ -71,12 +71,12 @@ local fes i.t i.Region
 
 foreach wt in no yes {
     if "`wt'"=="no"  {
-    local opt
-    local gn 
+        local opt
+        local gn 
     }
-	if "`wt'"=="yes" {
-    local opt [aw=Population]
-    local gn _Wt 
+    if "`wt'"=="yes" {
+        local opt [aw=Population]
+        local gn _Wt 
     }
     #delimit ;
     eventdd callRate `fes' `opt', timevar(timeToQ) ci(rcap) lags(16) leads(3)
@@ -179,30 +179,30 @@ local fes Region t
 
 foreach wt in no yes {
     foreach tv in quarantine PropPopQuar {
-	    if "`wt'"=="no"  {
+	if "`wt'"=="no"  {
             if "`tv'"=="quarantine" {  
-			    local v _quar
-	            local opt placebo(5) dynamic(3) breps(10) cluster(Region)
+                local v _quar
+	        local opt placebo(5) dynamic(3) breps(10) cluster(Region)
                 local gn 
-			}
-			if "`tv'"=="PropPopQuar" {
-		        local v _pop
-			    local opt placebo(5) dynamic(1) breps(10) cluster(Region)
+	    }
+            if "`tv'"=="PropPopQuar" {
+                local v _pop
+                local opt placebo(5) dynamic(1) breps(10) cluster(Region)
                 local gn 
             }
-		}
+        }
         if "`wt'"=="yes" {
             if "`tv'"=="quarantine" {  
-			    local v _quar
-	            local opt placebo(5) dynamic(3) breps(10) cluster(Region) weight(Population)
+                local v _quar
+	        local opt placebo(5) dynamic(3) breps(10) cluster(Region) weight(Population)
                 local gn _Wt
-			}
-			if "`tv'"=="PropPopQuar" {
-		        local v _pop
-			    local opt placebo(5) dynamic(1) breps(10) cluster(Region) weight(Population)
+            }
+            if "`tv'"=="PropPopQuar" {
+                local v _pop
+                local opt placebo(5) dynamic(1) breps(10) cluster(Region) weight(Population)
                 local gn _Wt
             }			
-		}
+        }
 		
 	did_multiplegt callRate `fes' `tv', `opt'
         ereturn list
