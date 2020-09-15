@@ -175,25 +175,7 @@ foreach q of varlist quarantine PropPopQuar {
 *-------------------------------------------------------------------------------
 *--- (4) Sharp Difference-in-Difference
 *-------------------------------------------------------------------------------
-use "$DAT/llamadas1455", clear
-drop if anio==2020&mes==1
-gen callRate = Llamados/Population*100000
-
-gen quarantine = Cuarentena>0 if Cuarentena!=.
-drop if Region==.
-bys Region (t): gen n = _n
-bys Region (t): egen minn = min(n) if quarantine==1
-bys Region: egen qstart = min(minn)
-gen timeToQ = n-qstart
-tab timeToQ
-
-levelsof Region, local(region)
-foreach tp in externo interno {
-    foreach c of local region {
-        qui sum mobility_`tp' if t<=721&Region==`c' //solo se repite el dato de febrero
-        replace mobility_`tp'=`r(mean)' if t<721&Region==`c'
-    }
-}
+local fes Region t
 
 foreach wt in no yes {
     foreach tv in quarantine PropPopQuar {
@@ -222,19 +204,19 @@ foreach wt in no yes {
             }			
 		}
 		
-		did_multiplegt callRate Region t `tv', `opt'
+	did_multiplegt callRate `fes' `tv', `opt'
         ereturn list
         graph export "$OUT/did_multiplegt/did1`v'`gn'_callRate.eps", replace
         
-        did_multiplegt callRate Region t `tv', controls(Population) `opt'
+        did_multiplegt callRate `fes' `tv', controls(Population) `opt'
         ereturn list
         graph export "$OUT/did_multiplegt/did2`v'`gn'_callRate.eps", replace
         
-        did_multiplegt callRate Region t `tv', controls(mobility_externo mobility_interno) `opt'
+        did_multiplegt callRate `fes' `tv', controls(mobility_externo mobility_interno) `opt'
         ereturn list
         graph export "$OUT/did_multiplegt/did3`v'`gn'_callRate.eps", replace
         
-        did_multiplegt callRate Region t `tv', controls(mobility_externo mobility_interno Population) `opt'
+        did_multiplegt callRate `fes' `tv', controls(mobility_externo mobility_interno Population) `opt'
         ereturn list
         graph export "$OUT/did_multiplegt/did4`v'`gn'_callRate.eps", replace
     }
