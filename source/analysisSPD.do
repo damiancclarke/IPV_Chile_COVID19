@@ -31,7 +31,6 @@ global OUT "$ROOT/results/spd"
 global LOG "$ROOT/log"
 
 
-
 cap mkdir "$OUT"
 cap mkdir "$LOG"
 log using "$LOG/analysisSPD.txt", text replace

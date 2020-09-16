@@ -182,7 +182,7 @@ foreach wt in no yes {
 	if "`wt'"=="no"  {
             if "`tv'"=="quarantine" {  
                 local v _quar
-	        local opt placebo(5) dynamic(3) breps(10) cluster(Region)
+	            local opt placebo(5) dynamic(3) breps(10) cluster(Region)
                 local gn 
 	    }
             if "`tv'"=="PropPopQuar" {
@@ -194,7 +194,7 @@ foreach wt in no yes {
         if "`wt'"=="yes" {
             if "`tv'"=="quarantine" {  
                 local v _quar
-	        local opt placebo(5) dynamic(3) breps(10) cluster(Region) weight(Population)
+	            local opt placebo(5) dynamic(3) breps(10) cluster(Region) weight(Population)
                 local gn _Wt
             }
             if "`tv'"=="PropPopQuar" {
