@@ -128,7 +128,7 @@ tsline victimas_m if year==2020, lcolor(gs3) lpattern(solid)
 legend(order(1 "Year 2018" 2 "year 2019" 3 "Year 2020"))
 ytitle("Male Victims per 10,000 people") xtitle("")
 xlabel(21185 "1 January" 21216 "1 February" 21244 "1 March"
-       21275 "1 April" 21305 "1 May" 21336 "1 June"", angle(45));
+       21275 "1 April" 21305 "1 May" 21336 "1 June", angle(45));
 graph export "$OUT/descriptives/victimasMNacional.eps", replace;
 #delimit cr
 restore
@@ -169,11 +169,13 @@ restore
 
 **DAMIAN: los graficos originales estan para la cantidad de denuncias
 **quieres pasar estos graficos a denuncias por 10mil habitantes??
+**DC: Buen punto!  ¿Podemos agregar graficos con tasas por 10 mil también?  Gracias!
 preserve
 set scheme plotplainblind
 drop if year==2018
 gen period = 1 if month==1|month==2
 replace period = 2 if month==4|month==5 //DUDA: marzo-abril? o solo abril mayo? o los 3 meses?
+**DC: Mejor así con abril/mayo.  Así evitamos marzo que fue un mes de transición...
 collapse (sum) denuncias, by(comuna period year)
 drop if period==.
 reshape wide denuncias, i(comuna period) j(year)
