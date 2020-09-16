@@ -1,0 +1,190 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{lscape}
+\usepackage{float}
+
+%------------------------------------------------%
+\begin{document}
+
+\section{Descriptives}
+
+\section{Event Study}
+	\subsection{Calls}
+%----Evento1----%
+\begin{figure}[H]
+\caption{Sin peso, sin controles}
+\centering
+\includegraphics[scale=0.8]{../results/calls/eventdd/event1_callRate.eps}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Con peso, sin controles}
+\centering
+\includegraphics[scale=0.8]{../results/calls/eventdd/event1_Wt_callRate.eps}
+\end{figure}
+%----Evento2----%
+\begin{figure}[H]
+\caption{Sin peso, control de poblacion}
+\centering
+\includegraphics[scale=0.8]{../results/calls/eventdd/event2_callRate.eps}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Con peso, control de poblacion}
+\centering
+\includegraphics[scale=0.8]{../results/calls/eventdd/event2_Wt_callRate.eps}
+\end{figure}
+%----Evento3----%
+\begin{figure}[H]
+\caption{Sin peso, control de movilidad}
+\centering
+\includegraphics[scale=0.8]{../results/calls/eventdd/event3_callRate.eps}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Con peso, control de movilidad}
+\centering
+\includegraphics[scale=0.8]{../results/calls/eventdd/event3_Wt_callRate.eps}
+\end{figure}
+%----Evento4----%
+\begin{figure}[H]
+\caption{Sin peso, control de movilidad y poblacion}
+\centering
+\includegraphics[scale=0.8]{../results/calls/eventdd/event4_callRate.eps}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Con peso, control de movilidad y poblacion}
+\centering
+\includegraphics[scale=0.8]{../results/calls/eventdd/event4_Wt_callRate.eps}
+\end{figure}
+
+\section{Two way FEs}
+
+\begin{landscape}
+  \begin{table}
+    \centering
+    \caption{Difference-in-Differences Estimates of...} \label{tab:DD}
+    \begin{tabular}{lcccccccc} \toprule
+      &\multicolumn{4}{c}{Without Population Weight}&\multicolumn{4}{c}{With Population Weight} \\ 
+      \cmidrule(r){2-5}\cmidrule(r){6-9}
+      &(1)&(2)&(3)&(4)&(5)&(6)&(7)&(8) \\ \midrule
+      \multicolumn{9}{l}{\textbf{Panel A: Quarantine}} \\
+      \input{../results/calls/areg/DD_quarantine_callRate.tex} \midrule
+      \multicolumn{9}{l}{\textbf{Panel B: Proportion}} \\
+      \input{../results/calls/areg/DD_PropPopQuar_callRate.tex}
+      \midrule
+      Municipality and Day FEs &Y&Y&Y&Y&Y&Y&Y&Y \\
+      Population Controls      & &Y& &Y& &Y& &Y \\
+      Mobility Controls        & & &Y&Y& & &Y&Y \\
+      \bottomrule
+      \multicolumn{9}{p{21.8cm}}{{\footnotesize Notes: Each column displays a difference-in-differences regression of the impact of quarantine and proportion of population under qurantine on call rate. Calls are measured as cases per 100.000 people.  All standard errors are clustered at the level of the region.}}
+    \end{tabular}
+  \end{table}
+\end{landscape}
+
+\section{Sharp Difference-in-Difference}
+	\subsection{Quarantine}
+%----Evento1----%
+\begin{figure}[H]
+\caption{Sin peso, sin controles}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did1_quar_callRate.eps}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Con peso, sin controles}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did1_quar_Wt_callRate.eps}
+\end{figure}
+%----Evento2----%
+\begin{figure}[H]
+\caption{Sin peso, con control de poblacion}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did2_quar_callRate.eps}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Con peso, con control de poblacion}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did2_quar_Wt_callRate.eps}
+\end{figure}
+%----Evento3----%
+\begin{figure}[H]
+\caption{Sin peso, con control de movilidad}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did3_quar_callRate.eps}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Con peso, con control de movilidad}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did3_quar_Wt_callRate.eps}
+\end{figure}
+%----Evento4----%
+\begin{figure}[H]
+\caption{Sin peso, con control de movilidad y poblacion}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did4_quar_callRate.eps}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Con peso, con control de movilidad y poblacion}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did4_quar_Wt_callRate.eps}
+\end{figure}
+
+	\subsection{Proportion of Population under Quarantine}
+%----Evento1----%
+\begin{figure}[H]
+\caption{Sin peso, sin controles}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did1_pop_callRate.eps}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Con peso, sin controles}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did1_pop_Wt_callRate.eps}
+\end{figure}
+%----Evento2----%
+\begin{figure}[H]
+\caption{Sin peso, con control de poblacion}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did2_pop_callRate.eps}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Con peso, con control de poblacion}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did2_pop_Wt_callRate.eps}
+\end{figure}
+%----Evento3----%
+\begin{figure}[H]
+\caption{Sin peso, con control de movilidad}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did3_pop_callRate.eps}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Con peso, con control de movilidad}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did3_pop_Wt_callRate.eps}
+\end{figure}
+%----Evento4----%
+\begin{figure}[H]
+\caption{Sin peso, con control de movilidad y poblacion}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did4_pop_callRate.eps}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Con peso, con control de movilidad y poblacion}
+\centering
+\includegraphics[scale=0.8]{../results/calls/did_multiplegt/did4_pop_Wt_callRate.eps}
+\end{figure}
+
+\end{document}
