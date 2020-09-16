@@ -91,7 +91,7 @@ foreach wt in no yes {
              scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
              ytitle("Calls to #1455 per 100,000 people"));
     graph export "$OUT\eventdd\event4`gn'_callRate.eps", replace;
-	#delimit cr
+    #delimit cr
 }
 graph drop _all
 
