@@ -51,7 +51,7 @@ local outcomes VIF VIF1 VIF2 VIF3
 local outcomespc
 foreach var of varlist `outcomes' {
     gen `var'pc = `var'/population*100000
-	local outcomespc `outcomespc' `var'pc
+    local outcomespc `outcomespc' `var'pc
 }
 
 bys comuna (t): gen n = _n
@@ -63,10 +63,10 @@ tab timeToQ
 levelsof comuna, local(comunas)
 foreach tp in externo interno {
     foreach c of local comunas {
-	    if "`c'"!="11302"&"`c'"!="12202" {
-		    qui sum mobility_`tp' if t==721&comuna==`c'
-		    replace mobility_`tp'=`r(mean)' if t<721&comuna==`c'
-	    }
+        if "`c'"!="11302"&"`c'"!="12202" {
+            qui sum mobility_`tp' if t==721&comuna==`c'
+            replace mobility_`tp'=`r(mean)' if t<721&comuna==`c'
+        }
     }
 }
 
@@ -102,11 +102,7 @@ foreach wt in no yes {
                  ytitle("Calls to #149 per 100,000 people"));
         graph export "$OUT/eventdd/event2`gn'_`var'.eps", replace;
 	
-<<<<<<< HEAD
-        eventdd `var' `fes' mobility_externo mobility_interno `opt',
-=======
 	eventdd `var' `fes' mobility_externo mobility_interno `opt',
->>>>>>> 276ae01d996c2c9b80e2bcb50396c3410ae677b7
         timevar(timeToQ) ci(rcap) lags(18) leads(3)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6"
@@ -115,11 +111,7 @@ foreach wt in no yes {
                  ytitle("Calls to #149 per 100,000 people"));
         graph export "$OUT/eventdd/event3`gn'_`var'.eps", replace;
 	
-<<<<<<< HEAD
-        eventdd `var' `fes' population mobility_externo mobility_interno `opt',
-=======
 	eventdd `var' `fes' population mobility_externo mobility_interno `opt',
->>>>>>> 276ae01d996c2c9b80e2bcb50396c3410ae677b7
         timevar(timeToQ) ci(rcap) lags(18) leads(3)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6" -3
