@@ -102,7 +102,7 @@ foreach wt in no yes {
                  ytitle("Calls to #149 per 100,000 people"));
         graph export "$OUT/eventdd/event2`gn'_`var'.eps", replace;
 	
-	    eventdd `var' `fes' mobility_externo mobility_interno `opt',
+        eventdd `var' `fes' mobility_externo mobility_interno `opt',
         timevar(timeToQ) ci(rcap) lags(18) leads(3)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6"
@@ -111,7 +111,7 @@ foreach wt in no yes {
                  ytitle("Calls to #149 per 100,000 people"));
         graph export "$OUT/eventdd/event3`gn'_`var'.eps", replace;
 	
-	    eventdd `var' `fes' population mobility_externo mobility_interno `opt',
+        eventdd `var' `fes' population mobility_externo mobility_interno `opt',
         timevar(timeToQ) ci(rcap) lags(18) leads(3)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6" -3
@@ -119,7 +119,7 @@ foreach wt in no yes {
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
                  ytitle("Calls to #149 per 100,000 people"));
         graph export "$OUT/eventdd/event4`gn'_`var'.eps", replace;
-	    #delimit cr
+        #delimit cr
     }
     graph drop _all
 }
@@ -169,7 +169,7 @@ foreach var of varlist `outcomespc' {
     local ests est1 est2 est3 est4 est5 est6 est7 est8
     #delimit ;
     esttab `ests' using "$OUT/areg/DD_`var'.tex",
-    b(%-9.3f) se(%-9.3f) noobs keep(quarantine) nonotes nogaps
+    b(%-9.3f) se(%-9.3f) noobs keep(mobility_externo mobility_interno population quarantine) nonotes nogaps
     mlabels(, none) nonumbers style(tex) fragment replace noline label
     starlevel ("*" 0.10 "**" 0.05 "***" 0.01);
     #delimit cr
