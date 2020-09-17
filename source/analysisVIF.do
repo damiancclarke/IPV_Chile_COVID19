@@ -24,6 +24,7 @@ cap log close
 *--- (0) Globals, set-up
 *-------------------------------------------------------------------------------
 global ROOT "C:/Users/danie/Desktop/Proyectos/Asistente/replication"
+global ROOT "/home/damian/investigacion/2020/IPV_COVID19/replication"
 
 global DAT "$ROOT/data/VIF/dta"
 global OUT "$ROOT/results/vif"
@@ -74,6 +75,7 @@ foreach tp in externo interno {
 *--- (2) Event Study
 *-------------------------------------------------------------------------------
 local fes i.t i.comuna 
+generate upper=15
 
 foreach wt in no yes {
     if "`wt'"=="no"  {
@@ -84,42 +86,57 @@ foreach wt in no yes {
         local opt [aw=population]
         local gn _Wt 
     }
+    local j = 1
     foreach var of varlist `outcomespc' {
+        if `j'==1 local x = -4
+        if `j'==2 local x = -0.2
+        if `j'==3 local x = -2
+        if `j'==4 local x = -1
+        
         #delimit ;
         eventdd `var' `fes' `opt', timevar(timeToQ) ci(rcap) lags(18) 
-		leads(3) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        leads(5) baseline(-7) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6" -3
-                        "-3" 0 "0" 1 "+1" 2 "+2" 3 "+3")
+                        "-3" 0 "0" 1 "+1" 2 "+2" 3 "3" 4 "4" 5 "5+")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
-                 ytitle("Calls to #149 per 100,000 people"));
+                 ytitle("Calls to #149 per 100,000 people")
+                 xline(-7) text(-4 -4 "Partially Post-COVID", size(small))
+                 text(-4 2 "Post-Quarantine", size(small)));
         graph export "$OUT/eventdd/event1`gn'_`var'.eps", replace;
 	
 	eventdd `var' `fes' population `opt', timevar(timeToQ) ci(rcap)
-        lags(18) leads(3) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
-        graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6"
-                        -3 "-3" 0 "0" 1 "+1" 2 "+2" 3 "+3")
+        lags(18) leads(5) baseline(-7) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6" -3
+                        "-3" 0 "0" 1 "+1" 2 "+2" 3 "3" 4 "4" 5 "5+")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
-                 ytitle("Calls to #149 per 100,000 people"));
+                 ytitle("Calls to #149 per 100,000 people")
+                 xline(-7) text(-4 -4 "Partially Post-COVID", size(small))
+                 text(-4 2 "Post-Quarantine", size(small)));
         graph export "$OUT/eventdd/event2`gn'_`var'.eps", replace;
 	
 	eventdd `var' `fes' mobility_externo mobility_interno `opt',
-        timevar(timeToQ) ci(rcap) lags(18) leads(3)
-        baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
-        graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6"
-                        -3 "-3" 0 "0" 1 "+1" 2 "+2" 3 "+3")
+        timevar(timeToQ) ci(rcap) lags(18) leads(5)
+        baseline(-7) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6" -3
+                        "-3" 0 "0" 1 "+1" 2 "+2" 3 "3" 4 "4" 5 "5+")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
-                 ytitle("Calls to #149 per 100,000 people"));
+                 ytitle("Calls to #149 per 100,000 people")
+                 xline(-7) text(-4 -4 "Partially Post-COVID", size(small))
+                 text(-4 2 "Post-Quarantine", size(small)));
         graph export "$OUT/eventdd/event3`gn'_`var'.eps", replace;
 	
 	eventdd `var' `fes' population mobility_externo mobility_interno `opt',
-        timevar(timeToQ) ci(rcap) lags(18) leads(3)
-        baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        timevar(timeToQ) ci(rcap) lags(18) leads(5)
+        baseline(-7) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6" -3
-                        "-3" 0 "0" 1 "+1" 2 "+2" 3 "+3")
+                        "-3" 0 "0" 1 "+1" 2 "+2" 3 "3" 4 "4" 5 "5+")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
-                 ytitle("Calls to #149 per 100,000 people"));
+                 ytitle("Calls to #149 per 100,000 people")
+                 xline(-7) text(-4 -4 "Partially Post-COVID", size(small))
+                 text(-4 2 "Post-Quarantine", size(small)));
         graph export "$OUT/eventdd/event4`gn'_`var'.eps", replace;
         #delimit cr
+        local ++j
     }
     graph drop _all
 }
