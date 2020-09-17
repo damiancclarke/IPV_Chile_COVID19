@@ -100,8 +100,8 @@ foreach wt in no yes {
                         "-3" 0 "0" 1 "+1" 2 "+2" 3 "3" 4 "4" 5 "5+")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
                  ytitle("Calls to #149 per 100,000 people")
-                 xline(-7) text(-4 -4 "Partially Post-COVID", size(small))
-                 text(-4 2 "Post-Quarantine", size(small)));
+                 xline(-7) text(`x' -4 "Partially Post-COVID", size(small))
+                 text(`x' 2 "Post-Quarantine", size(small)));
         graph export "$OUT/eventdd/event1`gn'_`var'.eps", replace;
 	
 	eventdd `var' `fes' population `opt', timevar(timeToQ) ci(rcap)
@@ -110,8 +110,8 @@ foreach wt in no yes {
                         "-3" 0 "0" 1 "+1" 2 "+2" 3 "3" 4 "4" 5 "5+")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
                  ytitle("Calls to #149 per 100,000 people")
-                 xline(-7) text(-4 -4 "Partially Post-COVID", size(small))
-                 text(-4 2 "Post-Quarantine", size(small)));
+                 xline(-7) text(`x' -4 "Partially Post-COVID", size(small))
+                 text(`x' 2 "Post-Quarantine", size(small)));
         graph export "$OUT/eventdd/event2`gn'_`var'.eps", replace;
 	
 	eventdd `var' `fes' mobility_externo mobility_interno `opt',
@@ -121,8 +121,8 @@ foreach wt in no yes {
                         "-3" 0 "0" 1 "+1" 2 "+2" 3 "3" 4 "4" 5 "5+")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
                  ytitle("Calls to #149 per 100,000 people")
-                 xline(-7) text(-4 -4 "Partially Post-COVID", size(small))
-                 text(-4 2 "Post-Quarantine", size(small)));
+                 xline(-7) text(`x' -4 "Partially Post-COVID", size(small))
+                 text(`x' 2 "Post-Quarantine", size(small)));
         graph export "$OUT/eventdd/event3`gn'_`var'.eps", replace;
 	
 	eventdd `var' `fes' population mobility_externo mobility_interno `opt',
@@ -132,8 +132,8 @@ foreach wt in no yes {
                         "-3" 0 "0" 1 "+1" 2 "+2" 3 "3" 4 "4" 5 "5+")
                  scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
                  ytitle("Calls to #149 per 100,000 people")
-                 xline(-7) text(-4 -4 "Partially Post-COVID", size(small))
-                 text(-4 2 "Post-Quarantine", size(small)));
+                 xline(-7) text(`x' -4 "Partially Post-COVID", size(small))
+                 text(`x' 2 "Post-Quarantine", size(small)));
         graph export "$OUT/eventdd/event4`gn'_`var'.eps", replace;
         #delimit cr
         local ++j
