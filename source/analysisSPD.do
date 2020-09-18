@@ -173,8 +173,7 @@ preserve
 set scheme plotplainblind
 drop if year==2018
 gen period = 1 if month==1|month==2
-replace period = 2 if month==4|month==5 //DUDA: marzo-abril? o solo abril mayo? o los 3 meses?
-**DC: Mejor así con abril/mayo.  Así evitamos marzo que fue un mes de transición...
+replace period = 2 if month==4|month==5 
 collapse (sum) denuncias, by(comuna period year)
 drop if period==.
 reshape wide denuncias, i(comuna period) j(year)

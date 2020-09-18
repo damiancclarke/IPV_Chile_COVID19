@@ -104,7 +104,7 @@ foreach wt in no yes {
                  text(`x' 2 "Post-Quarantine", size(small)));
         graph export "$OUT/eventdd/event1`gn'_`var'.eps", replace;
 	
-	eventdd `var' `fes' population `opt', timevar(timeToQ) ci(rcap)
+        eventdd `var' `fes' population `opt', timevar(timeToQ) ci(rcap)
         lags(18) leads(5) baseline(-7) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6" -3
                         "-3" 0 "0" 1 "+1" 2 "+2" 3 "3" 4 "4" 5 "5+")
@@ -114,7 +114,7 @@ foreach wt in no yes {
                  text(`x' 2 "Post-Quarantine", size(small)));
         graph export "$OUT/eventdd/event2`gn'_`var'.eps", replace;
 	
-	eventdd `var' `fes' mobility_externo mobility_interno `opt',
+        eventdd `var' `fes' mobility_externo mobility_interno `opt',
         timevar(timeToQ) ci(rcap) lags(18) leads(5)
         baseline(-7) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6" -3
@@ -125,7 +125,7 @@ foreach wt in no yes {
                  text(`x' 2 "Post-Quarantine", size(small)));
         graph export "$OUT/eventdd/event3`gn'_`var'.eps", replace;
 	
-	eventdd `var' `fes' population mobility_externo mobility_interno `opt',
+        eventdd `var' `fes' population mobility_externo mobility_interno `opt',
         timevar(timeToQ) ci(rcap) lags(18) leads(5)
         baseline(-7) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6" -3
