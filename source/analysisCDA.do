@@ -70,6 +70,31 @@ foreach tp in externo interno {
     }
 }
 
+
+*-------------------------------------------------------------------------------
+*--- (1b) Summary statistics
+*-------------------------------------------------------------------------------
+preserve
+gen month=month(t)
+gen residents = n_m_dna+n_n_dna
+gen cupos     = cupos_m + cupos_n
+
+collapse residents cupos population, by(month year Region)
+
+gen residentspc = residents/population*100000
+gen cupospc     = cupos/population*100000
+
+lab var residentspc "Residents in DV Shelters per 100,000 Inhabitants"
+lab var cupospc     "Total Capacity of DV Shelters per 100,000 Inhabitants"
+
+#delimit ;
+estpost sum residentspc cupospc;
+estout using "$OUT/descriptives/SummaryCDA.tex", replace label style(tex)
+cells("count mean(fmt(2)) sd(fmt(2)) min(fmt(1)) max(fmt(1))")
+collabels(, none) mlabels(, none);
+#delimit cr
+restore
+exit
 *-------------------------------------------------------------------------------
 *--- (2) Event Study
 *-------------------------------------------------------------------------------

@@ -96,7 +96,21 @@ xline(15, lcolor(red));
 graph export "$OUT/descriptives/calls149.eps", replace;
 #delimit cr
 restore
-exit
+
+preserve
+lab var VIFpc "All Calls to \#149 per 100,000 Inhabitants"
+lab var VIF1pc "Calls to \#149 for Economic Violence per 100,000"
+lab var VIF2pc "Calls to \#149 for Physical Violence per 100,000"
+lab var VIF3pc "Calls to \#149 for Psychological Violence per 100,000"
+
+#delimit ;
+estpost sum VIFpc VIF1pc VIF2pc VIF3pc;
+estout using "$OUT/descriptives/Summary149.tex", replace label style(tex)
+cells("count mean(fmt(2)) sd(fmt(2)) min(fmt(1)) max(fmt(1))")
+collabels(, none) mlabels(, none);
+#delimit cr
+restore
+
 *-------------------------------------------------------------------------------
 *--- (2) Event Study
 *-------------------------------------------------------------------------------

@@ -52,7 +52,7 @@ local outcomes denuncias victimas
 local outcomespc
 foreach var of varlist `outcomes' {
     gen `var'pc = `var'/poblacion*100000
-	local outcomespc `outcomespc' `var'pc
+    local outcomespc `outcomespc' `var'pc
 }
 
 bys comuna (t): gen n = _n
@@ -76,6 +76,24 @@ foreach tp in externo interno {
 *--- (2) Descriptives
 *-------------------------------------------------------------------------------
 preserve
+collapse poblacion (sum) denuncias victimas, by(comuna month year)
+foreach var of varlist `outcomes' {
+    gen `var'pc = `var'/poblacion*100000
+    local outcomespc `outcomespc' `var'pc
+}
+lab var denunciaspc "Complaints to Police for DV per 100,000 Inhabitants"
+lab var denuncias "Total Complaints to Police for DV"
+
+#delimit ;
+estpost sum denuncias denunciaspc;
+estout using "$OUT/descriptives/SummaryPoliceComplaints.tex", replace label style(tex)
+cells("count mean(fmt(2)) sd(fmt(2)) min(fmt(1)) max(fmt(1))")
+collabels(, none) mlabels(, none);
+#delimit cr
+restore
+
+
+preserve
 collapse (sum) denuncias, by(month year)
 rename month orden
 reshape wide denuncias, i(orden) j(year)
@@ -94,19 +112,30 @@ restore
 
 preserve
 collapse (sum) denuncias victimas_f victimas_m poblacion, by(month year t)
-replace denuncias = denuncias/poblacion*10000
-replace victimas_f = victimas_f/poblacion*10000
-replace victimas_m = victimas_m/poblacion*10000
 tsset t
 replace t = t-365 if year>2018
 replace t = t-365 if year>2019
+#delimit ;
+tsline denuncias if year==2018, lcolor(gs13) lpattern(solid) ||
+tsline denuncias if year==2019, lcolor(gs13) lpattern(solid) ||
+tsline denuncias if year==2020, lcolor(red) lpattern(solid) lwidth(medthick)
+legend(order(1 "Year 2018" 2 "year 2019" 3 "Year 2020"))
+ytitle("Total Crimes for DV") xtitle("")
+xlabel(21185 "1 January" 21216 "1 February" 21244 "1 March"
+       21275 "1 April" 21305 "1 May" 21336 "1 June", angle(45));
+graph export "$OUT/descriptives/denunciasNacional_total.eps", replace;
+#delimit cr
+
+replace denuncias = denuncias/poblacion*100000
+replace victimas_f = victimas_f/poblacion*100000
+replace victimas_m = victimas_m/poblacion*100000
 
 #delimit ;
 tsline denuncias if year==2018, lcolor(gs13) lpattern(solid) ||
 tsline denuncias if year==2019, lcolor(gs13) lpattern(solid) ||
 tsline denuncias if year==2020, lcolor(red) lpattern(solid) lwidth(medthick)
 legend(order(1 "Year 2018" 2 "year 2019" 3 "Year 2020"))
-ytitle("Crime Rate per 10,000 people") xtitle("")
+ytitle("Crime Rate per 100,000 people") xtitle("")
 xlabel(21185 "1 January" 21216 "1 February" 21244 "1 March"
        21275 "1 April" 21305 "1 May" 21336 "1 June", angle(45));
 graph export "$OUT/descriptives/denunciasNacional.eps", replace;
@@ -116,7 +145,7 @@ tsline victimas_f if year==2018, lcolor(gs13) lpattern(solid) ||
 tsline victimas_f if year==2019, lcolor(gs13) lpattern(solid) ||
 tsline victimas_f if year==2020, lcolor(gs3) lpattern(solid)
 legend(order(1 "Year 2018" 2 "year 2019" 3 "Year 2020"))
-ytitle("Female Victims per 10,000 people") xtitle("")
+ytitle("Female Victims per 100,000 people") xtitle("")
 xlabel(21185 "1 January" 21216 "1 February" 21244 "1 March"
        21275 "1 April" 21305 "1 May" 21336 "1 June", angle(45));
 graph export "$OUT/descriptives/victimasFNacional.eps", replace;
@@ -125,13 +154,13 @@ tsline victimas_m if year==2018, lcolor(gs13) lpattern(solid) ||
 tsline victimas_m if year==2019, lcolor(gs13) lpattern(solid) ||
 tsline victimas_m if year==2020, lcolor(gs3) lpattern(solid)
 legend(order(1 "Year 2018" 2 "year 2019" 3 "Year 2020"))
-ytitle("Male Victims per 10,000 people") xtitle("")
+ytitle("Male Victims per 100,000 people") xtitle("")
 xlabel(21185 "1 January" 21216 "1 February" 21244 "1 March"
        21275 "1 April" 21305 "1 May" 21336 "1 June", angle(45));
 graph export "$OUT/descriptives/victimasMNacional.eps", replace;
 #delimit cr
 restore
-
+exit
 preserve
 collapse (sum) denuncias victimas_f victimas_m poblacion, by(month year t region)
 replace denuncias = denuncias/poblacion*10000
