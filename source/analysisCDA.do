@@ -306,6 +306,7 @@ exit
 *--------------
 *omit from here:
 *--------------
+/*
 use "$DAT/CDA.dta", clear
 
 drop if t==21996 //21mar
@@ -342,6 +343,6 @@ esttab est1, b(%-9.3f) se(%-9.3f) noobs nonotes nogaps
         mlabels(, none) nonumbers style(tex) fragment replace noline label
         starlevel ("*" 0.10 "**" 0.05 "***" 0.01) scalars(ci1);
 #delimit cr
-
+*/
 
 
