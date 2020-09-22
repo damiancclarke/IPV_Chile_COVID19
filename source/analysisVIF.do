@@ -181,6 +181,18 @@ foreach wt in no yes {
     graph drop _all
 }
 
+#delimit ;
+eventdd VIFpc `fes' if qstart==15|qstart==16|qstart==., timevar(timeToQ) ci(rcap)
+lags(15)  leads(5) baseline(-2) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+graph_op(xlabel(-15 "{&le} -15" -12 "-12" -9 "-9" -6 "-6" -3
+                "-3" 0 "0" 1 "+1" 2 "+2" 3 "3" 4 "4" 5 "5+")
+         scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+         ytitle("Calls to #149 per 100,000 people"));
+graph export "$OUT/eventdd/event_VIF_earlyQs.eps", replace;
+#delimit cr
+exit
+
+
 *-------------------------------------------------------------------------------
 *--- (3) Two way FEs
 *-------------------------------------------------------------------------------
@@ -188,6 +200,9 @@ xtset comuna t
 local fes i.t i.comuna 
 local se abs(comuna) cluster(comuna) 
 
+lab var quarantine "Quarantine Imposed"
+lab var mobility_interno "Internal Movement in Municipality"
+lab var mobility_externo "External Movement in Municipality"
 foreach var of varlist `outcomespc' {
     *Sin Pesos de Poblacion
     eststo: areg `var' `fes' quarantine, `se'
@@ -226,13 +241,16 @@ foreach var of varlist `outcomespc' {
     local ests est1 est2 est3 est4 est5 est6 est7 est8
     #delimit ;
     esttab `ests' using "$OUT/areg/DD_`var'.tex",
-    b(%-9.3f) se(%-9.3f) noobs keep(mobility_externo mobility_interno population quarantine) nonotes nogaps
+    b(%-9.3f) se(%-9.3f) noobs nonotes nogaps
+    keep(mobility_externo mobility_interno population quarantine)
     mlabels(, none) nonumbers style(tex) fragment replace noline label
+    stats(N mean, fmt(%9.0gc %5.3f)
+          label("\\ Observations" "Mean of Dependent Variable"))
     starlevel ("*" 0.10 "**" 0.05 "***" 0.01);
     #delimit cr
     estimates clear
 }
-
+exit
 *-------------------------------------------------------------------------------
 *--- (4) Sharp Difference-in-Difference
 *-------------------------------------------------------------------------------
