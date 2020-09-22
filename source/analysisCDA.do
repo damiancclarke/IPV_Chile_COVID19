@@ -304,6 +304,8 @@ exit
 
 
 *--------------
+*omit from here:
+*--------------
 use "$DAT/CDA.dta", clear
 
 drop if t==21996 //21mar
