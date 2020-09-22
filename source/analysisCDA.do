@@ -94,7 +94,7 @@ cells("count mean(fmt(2)) sd(fmt(2)) min(fmt(1)) max(fmt(1))")
 collabels(, none) mlabels(, none);
 #delimit cr
 restore
-exit
+
 *-------------------------------------------------------------------------------
 *--- (2) Event Study
 *-------------------------------------------------------------------------------
@@ -275,13 +275,15 @@ foreach q of varlist quarantine PropPopQuar {
         b(%-9.3f) se(%-9.3f) noobs nonotes nogaps
         keep(mobility_externo mobility_interno population `q') 
         mlabels(, none) nonumbers style(tex) fragment replace noline label
+        stats(N mean, fmt(%9.0gc %5.3f)
+                    label("\\ Observations" "Mean of Dependent Variable"))
         starlevel ("*" 0.10 "**" 0.05 "***" 0.01);
         #delimit cr
         estimates clear
     }
     graph drop _all
 }
-
+exit
 *-------------------------------------------------------------------------------
 *--- (4) Sharp Difference-in-Difference
 *-------------------------------------------------------------------------------

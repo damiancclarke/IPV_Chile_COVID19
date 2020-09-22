@@ -160,7 +160,7 @@ xlabel(21185 "1 January" 21216 "1 February" 21244 "1 March"
 graph export "$OUT/descriptives/victimasMNacional.eps", replace;
 #delimit cr
 restore
-exit
+
 preserve
 collapse (sum) denuncias victimas_f victimas_m poblacion, by(month year t region)
 replace denuncias = denuncias/poblacion*10000
@@ -252,14 +252,14 @@ foreach wt in no yes {
         eventdd `var' `fes' `opt', timevar(timeToQ) ci(rcap) lags(50)
         leads(50) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-50 "{&le} -50" -25 "-25" 0 "0" 25 "25" 50 "{&ge} 50")
-                 scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+                 scheme(s1mono) xtitle("Days Relative to Quarantine Imposition")
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event1`gn'_`var'.eps", replace;
 	
         eventdd `var' `fes' poblacion `opt', timevar(timeToQ) ci(rcap)
         lags(50) leads(50) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-50 "{&le} -50" -25 "-25" 0 "0" 25 "25" 50 "{&ge} 50")
-                 scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+                 scheme(s1mono) xtitle("Days Relative to Quarantine Imposition")
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event2`gn'_`var'.eps", replace;
         
@@ -267,7 +267,7 @@ foreach wt in no yes {
         timevar(timeToQ) ci(rcap) lags(50) leads(50)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-50 "{&le} -50" -25 "-25" 0 "0" 25 "25" 50 "{&ge} 50")
-                 scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+                 scheme(s1mono) xtitle("Days Relative to Quarantine Imposition")
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event3`gn'_`var'.eps", replace;
 	
@@ -275,7 +275,7 @@ foreach wt in no yes {
         timevar(timeToQ) ci(rcap) lags(50) leads(50)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-50 "{&le} -50" -25 "-25" 0 "0" 25 "25" 50 "{&ge} 50")
-                 scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+                 scheme(s1mono) xtitle("Days Relative to Quarantine Imposition")
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event4`gn'_`var'.eps", replace;
 	#delimit cr
@@ -309,14 +309,14 @@ foreach wt in no yes {
         eventdd `var' `fes' `opt', timevar(timeToQ) ci(rcap) lags(20)
         leads(9) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 9 "{&ge} 9")
-                 scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+                 scheme(s1mono) xtitle("Weeks Relative to Quarantine Imposition")
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event1`gn'_`var'_wk.eps", replace;
 	
         eventdd `var' `fes' poblacion `opt', timevar(timeToQ) ci(rcap)
         lags(20) leads(9) baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 9 "{&ge} 9")
-                 scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+                 scheme(s1mono) xtitle("Weeks Relative to Quarantine Imposition")
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event2`gn'_`var'_wk.eps", replace;
         
@@ -324,7 +324,7 @@ foreach wt in no yes {
         timevar(timeToQ) ci(rcap) lags(20) leads(9)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 9 "{&ge} 9")
-                 scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+                 scheme(s1mono) xtitle("Weeks Relative to Quarantine Imposition")
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event3`gn'_`var'_wk.eps", replace;
 	
@@ -332,7 +332,7 @@ foreach wt in no yes {
         timevar(timeToQ) ci(rcap) lags(20) leads(9)
         baseline(-1) coef_op(ms(Dh)) accum ci_op(lcolor(black))
         graph_op(xlabel(-20 "{&le} -20" -10 "-10" -5 "-5" 0 "0" 5 "5" 9 "{&ge} 9")
-                 scheme(s1mono) xtitle("Months Relative to Quarantine Imposition")
+                 scheme(s1mono) xtitle("Weeks Relative to Quarantine Imposition")
                  ytitle("Crime Rate per 100,000 people"));
         graph export "$OUT/eventdd/event4`gn'_`var'_wk.eps", replace;
 	#delimit cr
@@ -390,11 +390,13 @@ foreach var of varlist `outcomespc' {
     esttab `ests' using "$OUT/areg/DD_`var'.tex", b(%-9.3f) se(%-9.3f) noobs
     keep(mobility_externo mobility_interno poblacion quarantine) nonotes nogaps
     mlabels(, none) nonumbers style(tex) fragment replace noline label
+    stats(N mean, fmt(%9.0gc %5.3f)
+                label("\\ Observations" "Mean of Dependent Variable"))
     starlevel ("*" 0.10 "**" 0.05 "***" 0.01);
     #delimit cr
     estimates clear
 }
-
+exit
 *-------------------------------------------------------------------------------
 *--- (5) Sharp Difference-in-Difference
 *-------------------------------------------------------------------------------
