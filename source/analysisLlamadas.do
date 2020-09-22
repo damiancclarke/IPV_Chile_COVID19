@@ -25,6 +25,7 @@ cap log close
 *--- (0) Globals, set-up
 *-------------------------------------------------------------------------------
 global ROOT "C:/Users/danie/Desktop/Proyectos/Asistente/replication/"
+global ROOT "/home/damian/investigacion/2020/IPV_COVID19/replication"
 
 global DAT "$ROOT/data/calls/dta"
 global OUT "$ROOT/results/calls"

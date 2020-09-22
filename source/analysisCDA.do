@@ -75,7 +75,7 @@ foreach tp in externo interno {
 *-------------------------------------------------------------------------------
 *By Day
 local fes i.t i.Region
-              
+
 foreach wt in no yes {
     if "`wt'"=="no"  {
         local opt

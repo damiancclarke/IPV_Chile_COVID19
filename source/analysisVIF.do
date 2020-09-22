@@ -72,6 +72,32 @@ foreach tp in externo interno {
 }
 
 *-------------------------------------------------------------------------------
+*--- (1b) Descriptives
+*-------------------------------------------------------------------------------
+preserve
+collapse (sum) VIF1 VIF2 VIF3, by(t)
+gen time = _n
+gen total = VIF1+VIF2+VIF3
+drop if time>20
+rename VIF1 economic
+rename VIF2 physical
+rename VIF3 psychological
+set scheme plotplainblind
+#delimit ;
+twoway connected total time, lwidth(thick)
+||  connected economic time, lwidth(medthick)
+||  connected physical time, lwidth(medthick)
+||  connected psychological time, lwidth(medthick)
+xlabel(1 "Jan 2019" 4 "Apr 2019" 7 "Jul 2019" 10 "Oct 2019" 13 "Jan 2020"
+       16 "Apr 2020" 20 "Aug 2020", angle(45)) xtitle("")
+ytitle("Calls to #149 for DV")
+legend(order(1 "Total" 2 "Economic" 3 "Physical" 4 "Psychological"))
+xline(15, lcolor(red));
+graph export "$OUT/descriptives/calls149.eps", replace;
+#delimit cr
+restore
+exit
+*-------------------------------------------------------------------------------
 *--- (2) Event Study
 *-------------------------------------------------------------------------------
 local fes i.t i.comuna 
