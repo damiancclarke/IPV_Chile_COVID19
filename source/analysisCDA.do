@@ -111,8 +111,8 @@ foreach wt in no yes {
         local gn _Wt 
     }
     foreach var of varlist `outcomespc' {
-	if "`var'"=="ingresspc"   local et="Ingress of Residents per 100,000 people"
-	if "`var'"=="occupancypc" local et="Occupancy of Residents per 100,000 people"
+	if "`var'"=="ingresspc"   local et="Residents of DV Shelters per 100,000 people"
+	if "`var'"=="occupancypc" local et="Availability of DV Shelters per 100,000 people"
         
         #delimit ;
         eventdd `var' `fes' `opt', timevar(timeToQ) ci(rcap) 
@@ -173,8 +173,8 @@ foreach wt in no yes {
         local gn _Wt 
     }
     foreach var of varlist `outcomespc' {
-	if "`var'"=="ingresspc"   local et="Ingress of Residents per 100,000 people"
-	if "`var'"=="occupancypc" local et="Occupancy of Residents per 100,000 people"
+	if "`var'"=="ingresspc"   local et="Residents of DV Shelters per 100,000 people"
+	if "`var'"=="occupancypc" local et="Availability of DV Shelters per 100,000 people"
         
         #delimit ;
         eventdd `var' `fes' `opt', timevar(timeToQ) ci(rcap) 
@@ -225,6 +225,9 @@ local fes i.t i.Region
 local wt [aw=population]
 local se abs(Region) cluster(Region)
 
+lab var mobility_ext "Municipal Mobility (external)"
+lab var mobility_int "Municipal Mobility (internal)"
+
 foreach q of varlist quarantine PropPopQuar {
     foreach var of varlist `outcomespc' {
         *Sin Pesos de Poblacion
@@ -233,17 +236,7 @@ foreach q of varlist quarantine PropPopQuar {
         estadd scalar mean=r(mean)
         boottest `q'
 	
-        eststo: areg `var' `fes' population `q', `se'
-        sum `var' if e(sample)==1
-        estadd scalar mean=r(mean)
-        boottest `q'
-        
         eststo: areg `var' `fes' mobility_ext mobility_int `q', `se'
-        sum `var' if e(sample)==1
-        estadd scalar mean=r(mean)
-        boottest `q'
-	
-        eststo: areg `var' `fes' mobility_ext mobility_int population `q', `se'
         sum `var' if e(sample)==1
         estadd scalar mean=r(mean)
         boottest `q'
@@ -253,27 +246,17 @@ foreach q of varlist quarantine PropPopQuar {
         sum `var' if e(sample)==1
         estadd scalar mean=r(mean)
         boottest `q'
-	
-        eststo: areg `var' `fes' population `q' `wt', `se'
-        sum `var' if e(sample)==1
-        estadd scalar mean=r(mean)
-        boottest `q'
-	
+
         eststo: areg `var' `fes' mobility_ext mobility_int `q' `wt', `se'
         sum `var' if e(sample)==1
         estadd scalar mean=r(mean)
         boottest `q'
 	
-        eststo: areg `var' `fes' mobility_ext mobility_int population `q' `wt', `se'
-        sum `var' if e(sample)==1
-        estadd scalar mean=r(mean)
-        boottest `q'
-    
-        local ests est1 est2 est3 est4 est5 est6 est7 est8
+        local ests est1 est2 est3 est4 
         #delimit ;
         esttab `ests' using "$OUT/areg/DD_`q'_`var'.tex",
         b(%-9.3f) se(%-9.3f) noobs nonotes nogaps
-        keep(mobility_externo mobility_interno population `q') 
+        keep(mobility_externo mobility_interno `q') 
         mlabels(, none) nonumbers style(tex) fragment replace noline label
         stats(N mean, fmt(%9.0gc %5.3f)
                     label("\\ Observations" "Mean of Dependent Variable"))
@@ -283,7 +266,7 @@ foreach q of varlist quarantine PropPopQuar {
     }
     graph drop _all
 }
-exit
+
 *-------------------------------------------------------------------------------
 *--- (4) Sharp Difference-in-Difference
 *-------------------------------------------------------------------------------
@@ -311,23 +294,17 @@ foreach wt in no yes {
             ereturn list
             graph export "$OUT/did_multiplegt/did1`v'`gn'_`var'.eps", replace
             
-            did_multiplegt `var' `fes' `tv', controls(population) `opt'
-            ereturn list
-            graph export "$OUT/did_multiplegt/did2`v'`gn'_`var'.eps", replace
-            
             did_multiplegt `var' `fes' `tv', controls(mobility_ext mobility_int) `opt'
             ereturn list
-            graph export "$OUT/did_multiplegt/did3`v'`gn'_`var'.eps", replace
-            
-            did_multiplegt `var' `fes' `tv', controls(mobility_ext mobility_int population) `opt'
-            ereturn list
-            graph export "$OUT/did_multiplegt/did4`v'`gn'_`var'.eps", replace
+            graph export "$OUT/did_multiplegt/did3`v'`gn'_`var'.eps", replace            
         }
     }
     graph drop _all
 }
 
+log close
 exit
+
 
 
 *--------------
