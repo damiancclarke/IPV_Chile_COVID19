@@ -235,6 +235,20 @@ foreach wt in no yes {
         if `j'==2 local x = -0.2
         if `j'==3 local x = -2
         if `j'==4 local x = -1
+
+        #delimit ;
+        eventdd mobility_interno `fes' `opt' if timeToExit<0|timeToExit==.,
+        timevar(timeToQ) ci(rcap) lags(18) 
+        leads(6) baseline(-7) coef_op(ms(Dh)) accum ci_op(lcolor(black))
+        graph_op(xlabel(-18 "{&le} -18" -15 "-15" -12 "-12" -9 "-9" -6 "-6" -3
+                        "-3" 0 "0" 2 "2" 4 "4" 6 "{&ge} 6")
+                 scheme(plottig) xtitle("Months Relative to Quarantine Imposition")
+                 ytitle("Calls to #149 per 100,000 people")
+                 xline(-7) text(`x' -4 "Partially Post-COVID", size(small))
+                 text(`x' 2 "Post-Quarantine", size(small)))
+        endpoints_op(ms(Dh) mc(midblue));
+        graph export "$OUT/eventdd/eventMobility_`gn'.eps", replace;
+
         
         #delimit ;
         eventdd `var' `fes' `opt' if timeToExit<0|timeToExit==., timevar(timeToQ) ci(rcap) lags(18) 
