@@ -112,6 +112,8 @@ bys comuna: egen maxQ = max(qmonth)
 gen qend = maxQ+12 if maxQ!=9
 gen timeToExit = n - qend
 
+
+***AQUÍ DANIEL
 set scheme plottig
 #delimit ;
 eventdd VIFpc  i.t i.comuna if qstart!=., timevar(timeToExit) ci(rcap) lags(18) 
