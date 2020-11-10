@@ -19,7 +19,7 @@ vers 15
 clear all
 set more off
 cap log close
-*set matsize ....
+*set matsize //es necesario
 
 *-------------------------------------------------------------------------------
 *--- (0) Globals, set-up
